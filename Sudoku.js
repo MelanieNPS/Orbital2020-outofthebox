@@ -4,10 +4,12 @@ var arr=["red","green","blue","cyan","yellow","magenta","orange","pink","violet"
 
 function group(num){
     let c=document.getElementById(num).children;
+    let d=document.getElementById("control").children;
     for(let i=0;i<9;i++){
         c[i].addEventListener("click",change);
+        d[i].children[0].style.backgroundPosition=-(i%3)*40+"px "+Math.floor(i/3)*(-40)+"px";
         function change(){
-            c[i].style.backgroundColor=arr[k];
+            c[i].children[0].style.backgroundPosition=-(k%3)*40+"px "+Math.floor(k/3)*(-40)+"px";
         }
     }
 }
