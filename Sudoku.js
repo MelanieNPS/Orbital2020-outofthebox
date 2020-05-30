@@ -21,3 +21,17 @@ function choose(i){
 for(let i=0;i<9;i++){
     group(numbers[i]);
 }
+
+function openTab(evt, tabName){
+    var tabcontent = document.getElementsByClassName("tab-content");
+    for (var i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    var tabButton = document.getElementsByClassName("tabButton");
+    for (var j = 0; j < tabButton.length; j++){
+        tabButton[j].className = tabButton[j].className.replace("active", "");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += "active";
+}
