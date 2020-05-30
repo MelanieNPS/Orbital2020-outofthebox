@@ -1,21 +1,40 @@
-var k=0;
+var k;
 var numbers=["one","two","three","four","five","six","seven","eight","nine"];
-var arr=["red","green","blue","cyan","yellow","magenta","orange","pink","violet"];
+var clickmode=false;
+
+function Erase(){
+    k=10;
+}
+function toggleclick(){
+    if(clickmode){
+        clickmode=false;
+    }
+    else{
+        clickmode=true;
+    }
+}
 
 function group(num){
     let c=document.getElementById(num).children;
     let d=document.getElementById("control").children;
     for(let i=0;i<9;i++){
         c[i].addEventListener("click",change);
+        c[i].addEventListener("keypress",keyboard);
         d[i].children[0].style.backgroundPosition=-(i%3)*40+"px "+Math.floor(i/3)*(-40)+"px";
+        function keyboard(event){
+            let h=event.key-1;
+            c[i].children[0].style.backgroundPosition=-(h%3)*40+"px "+Math.floor(h/3)*(-40)+"px";
+        }
         function change(){
-            c[i].children[0].style.backgroundPosition=-(k%3)*40+"px "+Math.floor(k/3)*(-40)+"px";
+            if(clickmode){
+                c[i].children[0].style.backgroundPosition=-(k%3)*40+"px "+Math.floor(k/3)*(-40)+"px";
+            }
         }
     }
 }
 
 function choose(i){
-    k=i
+    k=i;
 }
 
 for(let i=0;i<9;i++){
