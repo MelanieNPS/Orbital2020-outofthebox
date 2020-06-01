@@ -1,10 +1,17 @@
 var k;
-var numbers=["one","two","three","four","five","six","seven","eight","nine"];
+var control=["one","two","three","four","five","six","seven","eight","nine"];
 var clickmode=false;
 
 function Erase(){
-    k=10;
 }
+
+function clearAll(){
+    let c = document.getElementsByClassName("cell");
+    for (let i = 0; i<81; i++){
+        c[i].innerHTML = "";
+    }
+}
+
 function toggleclick(){
     if(clickmode){
         clickmode=false;
@@ -15,20 +22,24 @@ function toggleclick(){
 }
 
 function group(num){
-    let c=document.getElementById(num).children;
-    let d=document.getElementById("control").children;
-    for(let i=0;i<9;i++){
+    let c=document.getElementsByClassName("cell");
+    for(let i=0;i<81;i++){
         c[i].addEventListener("click",change);
         c[i].addEventListener("keypress",keyboard);
-        d[i].children[0].style.backgroundPosition=-(i%3)*40+"px "+Math.floor(i/3)*(-40)+"px";
         function keyboard(event){
-            let h=event.key-1;
-            c[i].children[0].style.backgroundPosition=-(h%3)*40+"px "+Math.floor(h/3)*(-40)+"px";
+            let h=event.key;
+            var control = /^[1-9]+$/;
+            if (control.test(h)){       //Only allow control from 1 to 9
+                c[i].innerHTML=h;
+            } else {
+                var otherwise = h.slice(0, -5);
+                c[i].innerHTML = otherwise;
+            }
         }
         function change(){
             if(clickmode){
-                c[i].children[0].style.backgroundPosition=-(k%3)*40+"px "+Math.floor(k/3)*(-40)+"px";
-            }
+                c[i].innerHTML=k + 1;
+            } 
         }
     }
 }
@@ -38,7 +49,7 @@ function choose(i){
 }
 
 for(let i=0;i<9;i++){
-    group(numbers[i]);
+    group(control[i]);
 }
 
 function openTab(evt, tabName){
@@ -54,3 +65,21 @@ function openTab(evt, tabName){
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += "active";
 }
+
+
+//Highlights the number clicked on
+var control = document.getElementById("control");
+var numbers = control.getElementsByClassName("numbers");
+for (var i = 0; i < numbers.length; i++) {
+  numbers[i].addEventListener("click", changeColor);
+}
+function changeColor(){
+    var current = document.getElementsByClassName("active");
+    if (current.length != 0){
+        current[0].className = current[0].className.replace(" active", "");
+    }
+    this.className += " active";
+}
+
+
+
