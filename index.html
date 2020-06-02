@@ -158,11 +158,13 @@
     <div id="control2">
         <div>
             <button type="button">Check</button>
+            <button id="autocheck" type="button" onclick="autocheck()">Autocheck</button>
         </div>
         <div>
             <button type="button" onclick="Erase()">Erase</button>
-            <button tyep="button" onclick="clearAll()"> Clear All</button>
-            <button type="button" onclick="toggleclick()">Click Mode</button>
+            <button tyep="button" onclick="clearAll()">Clear All</button>
+            <button type="button" id="click" onclick="toggleclick()">Click Mode</button>
+            <button type="button" id="Notes" onclick="Notes()">Notes</button>
         </div>
         <div>
             <button type="button">I give up!</button>
