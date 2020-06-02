@@ -75,7 +75,16 @@ td:focus{
 }
 #control2 button {
     background-color: #F1CDB0;
+    border-radius: 10%;
+    height: 40px;
+    cursor: pointer;
+    box-shadow: 0 4px #999;
 }
+#control2 button:active {
+    background-color: #C04000;
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+  }
 
 
 
