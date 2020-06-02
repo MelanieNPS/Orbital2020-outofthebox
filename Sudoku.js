@@ -40,6 +40,10 @@ function Notes(){
 function autocheck(){
     if(Autocheck){
         Autocheck=false;
+        let c=document.getElementsByClassName("cell");
+        for(let i=0;i<81;i++){
+            c[i].style.color="black";
+        }
         document.getElementById("autocheck").style.backgroundColor="#F1CDB0";
     }
     else{
