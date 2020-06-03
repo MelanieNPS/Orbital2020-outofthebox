@@ -130,43 +130,58 @@ function checkall(){
 }
 
 function group(){
-    let c=document.getElementsByClassName("cell");
-    for(let i=0;i<81;i++){
-        c[i].addEventListener("click",change);
-        c[i].addEventListener("click", eraseNumber);
-        c[i].addEventListener("keypress",keyboard);
-        function keyboard(event){
-            if(!togglenote){
-                let h=event.key;
-                var numbers = /^[1-9]+$/;
-                if (numbers.test(h)){       //Only allow control from 1 to 9
-                    c[i].innerHTML=h;
+    let cellnumber = document.getElementsByClassName("cellnumber");
+    for(let i=0;i<9;i++){
+        for(let j=0; j<9; j++){
+            let c = document.getElementById("cell" + i + j);
+            let notecell = c.getElementsByClassName("notecell");
+            let index = (i * 9) + j;
+            c.addEventListener("click",change);
+            c.addEventListener("click", eraseCell);
+            c.addEventListener("keypress",keyboard);
+            function keyboard(event){
+                if(!togglenote){
+                    let h=event.key;
+                    var numbers = /^[1-9]+$/;
+                    if (numbers.test(h)){       //Only allow control from 1 to 9
+                        for (let k =0; k< notecell.length; k++){
+                            notecell[k].innerHTML="";
+                        }
+                        cellnumber[index].innerHTML=h;
+                        if(Autocheck){
+                            checkall();
+                        }
+                    } else {
+                        cellnumber[index].innerHTML = "";
+                    }
+                } 
+            }
+            function change(){
+                if(clickmode && k!==undefined && !togglenote){
+                    for (let k =0; k< notecell.length; k++){
+                        notecell[k].innerHTML="";
+                    }
+                    cellnumber[index].innerHTML = k;
                     if(Autocheck){
                         checkall();
                     }
-                } else {
-                    c[i].innerHTML = "";
-                }
-            } 
-        }
-        function change(){
-            if(clickmode && k!==undefined && !togglenote){
-                c[i].innerHTML=k;
-                if(Autocheck){
-                    checkall();
-                }
-            } 
-        }
-        function eraseNumber(){
-            if(erase && !clickmode){
-                c[i].innerHTML="";
-                if(Autocheck){
-                    checkall();
                 } 
-            } else {}
+            }
+            function eraseCell(){
+                if(erase && !(clickmode || togglenote)){
+                    cellnumber[index].innerHTML = "&nbsp";
+                    for (let k =0; k< notecell.length; k++){
+                        notecell[k].innerHTML="";
+                    }
+                    if(Autocheck){
+                        checkall();
+                    } 
+                } else {}
+            }
         }
     }
 }
+        
 
 function choose(i){
     k=i+1;
@@ -191,15 +206,22 @@ function changeColor(){
 
 //Section for notes
 function notes(){
+    let cellnumber = document.getElementsByClassName("cellnumber");
     for(let i=0;i<9;i++){
         for(let j=0; j<9; j++){
             let cell = document.getElementById("cell" + i + j);
+            let notecell = cell.getElementsByClassName("notecell");
+            let index = (i * 9) + j;
             cell.addEventListener("click", changeNote);
             cell.addEventListener("keypress", changeKeyboard)
             function changeNote() {
                 if(togglenote && clickmode){
-                    let notecell = cell.getElementsByClassName("notecell");
-                    notecell[k - 1].innerHTML = k;
+                    cellnumber[index].innerHTML="&nbsp";
+                    if(notecell[k-1].innerHTML == k){
+                        notecell[k-1].innerHTML = "";
+                    } else {
+                        notecell[k - 1].innerHTML = k;
+                    }
                 }
             }
             function changeKeyboard(){
@@ -208,9 +230,10 @@ function notes(){
                     var numbers = /^[1-9]+$/;
                     let notecell = cell.getElementsByClassName("notecell");    
                     if (numbers.test(h)){
-                        if(notecell[h-1].innerHTML==h){
+                        cellnumber[index].innerHTML="&nbsp";  
+                        if(notecell[h-1].innerHTML==h){         //If the cell already has the note remove it
                             notecell[h-1].innerHTML = "";
-                        } else {
+                        } else {                                //Else add the note to the cell
                             notecell[h - 1].innerHTML=h;
                         }
                     } else {

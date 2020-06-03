@@ -12,9 +12,13 @@
     border: 1.5px solid black;
     width: 49px;
     height: 49px;
-    font-size: 35px;
     text-align: center;
+    font-size: 35px;
     background-color: rgb(227, 244, 245);
+}
+.cellnumber{
+    width: 40px;
+    height: 0px;
 }
 td:focus{
     box-shadow: 2px lightblue;
