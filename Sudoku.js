@@ -1,10 +1,24 @@
 var k;
 var clickmode=false;
+var erase=false;
 var Autocheck=false;
 var togglenote=false;
 
 function Erase(){
-    k="";
+    if(erase){
+        erase=false;
+        document.getElementById("erase").style.backgroundColor="#F1CDB0";
+    }
+    else{
+        erase=true;
+        if(clickmode || togglenote){
+            clickmode=false;
+            togglenote=false;
+            document.getElementById("click").style.backgroundColor="#F1CDB0";
+            document.getElementById("Notes").style.backgroundColor="#F1CDB0";
+        }
+        document.getElementById("erase").style.backgroundColor="#C04000";
+    }
 }
 
 function clearAll(){
@@ -22,6 +36,10 @@ function toggleclick(){
     else{
         clickmode=true;
         document.getElementById("click").style.backgroundColor="#C04000";
+        if(erase){
+            erase=false;
+            document.getElementById("erase").style.backgroundColor="#F1CDB0";
+        }
     }
 }
 
@@ -33,6 +51,10 @@ function Notes(){
     else{
         togglenote=true;
         document.getElementById("Notes").style.backgroundColor="#C04000";
+        if(erase){
+            erase=false;
+            document.getElementById("erase").style.backgroundColor="#F1CDB0";
+        }
     }
 
 }
@@ -111,47 +133,43 @@ function group(){
     let c=document.getElementsByClassName("cell");
     for(let i=0;i<81;i++){
         c[i].addEventListener("click",change);
+        c[i].addEventListener("click", eraseNumber);
         c[i].addEventListener("keypress",keyboard);
         function keyboard(event){
-            let h=event.key;
-            var control = /^[1-9]+$/;
-            if (control.test(h)){       //Only allow control from 1 to 9
-                c[i].innerHTML=h;
-                if(Autocheck){
-                    checkall();
+            if(!togglenote){
+                let h=event.key;
+                var numbers = /^[1-9]+$/;
+                if (numbers.test(h)){       //Only allow control from 1 to 9
+                    c[i].innerHTML=h;
+                    if(Autocheck){
+                        checkall();
+                    }
+                } else {
+                    c[i].innerHTML = "";
                 }
-            } else {
-                var otherwise = h.slice(0, -5);
-                c[i].innerHTML = otherwise;
-            }
+            } 
         }
         function change(){
-            if(clickmode && k!==undefined){
+            if(clickmode && k!==undefined && !togglenote){
                 c[i].innerHTML=k;
                 if(Autocheck){
                     checkall();
                 }
             } 
         }
+        function eraseNumber(){
+            if(erase && !clickmode){
+                c[i].innerHTML="";
+                if(Autocheck){
+                    checkall();
+                } 
+            } else {}
+        }
     }
 }
 
 function choose(i){
     k=i+1;
-}
-
-function openTab(evt, tabName){
-    var tabcontent = document.getElementsByClassName("tab-content");
-    for (var i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    var tabButton = document.getElementsByClassName("tabButton");
-    for (var j = 0; j < tabButton.length; j++){
-        tabButton[j].className = tabButton[j].className.replace("active", "");
-    }
-
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += "active";
 }
 
 group();
@@ -171,4 +189,37 @@ function changeColor(){
 }
 
 
+//Section for notes
+function notes(){
+    for(let i=0;i<9;i++){
+        for(let j=0; j<9; j++){
+            let cell = document.getElementById("cell" + i + j);
+            cell.addEventListener("click", changeNote);
+            cell.addEventListener("keypress", changeKeyboard)
+            function changeNote() {
+                if(togglenote && clickmode){
+                    let notecell = cell.getElementsByClassName("notecell");
+                    notecell[k - 1].innerHTML = k;
+                }
+            }
+            function changeKeyboard(){
+                if (togglenote) {
+                    let h=event.key;
+                    var numbers = /^[1-9]+$/;
+                    let notecell = cell.getElementsByClassName("notecell");    
+                    if (numbers.test(h)){
+                        if(notecell[h-1].innerHTML==h){
+                            notecell[h-1].innerHTML = "";
+                        } else {
+                            notecell[h - 1].innerHTML=h;
+                        }
+                    } else {
+                        notecell[h - 1].innerHTML = "";
+                    }
+                }
+            }
+        }
+    }
+}
 
+notes();
