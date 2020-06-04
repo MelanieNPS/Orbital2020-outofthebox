@@ -22,9 +22,13 @@ function Erase(){
 }
 
 function clearAll(){
-    let c = document.getElementsByClassName("cell");
+    let c = document.getElementsByClassName("cellnumber");
+    let d = document.getElementsByClassName("notecell");
     for (let i = 0; i<81; i++){
         c[i].innerHTML = "";
+    }
+    for (let i = 0; i<729; i++){
+        d[i].innerHTML = "";
     }
 }
 
@@ -62,7 +66,7 @@ function Notes(){
 function autocheck(){
     if(Autocheck){
         Autocheck=false;
-        let c=document.getElementsByClassName("cell");
+        let c=document.getElementsByClassName("cellnumber");
         for(let i=0;i<81;i++){
             c[i].style.color="black";
         }
@@ -83,12 +87,13 @@ function check(cell){
     let R=Math.floor(row/3)*3;
     let C=Math.floor(column/3)*3;
     let correct=true;
+    cell=cell.children[0];
 
     
     for(let i=0;i<9;i++){
         //checks for duplicate numbers in a row
         if(column!==`${i}`){
-            let c=document.getElementById(`cell${row}${i}`);
+            let c=document.getElementById(`cell${row}${i}`).children[0];
             if(c.innerHTML===cell.innerHTML && c.innerHTML!==""){
                 cell.style.color="red";
                 correct=false;
@@ -96,7 +101,7 @@ function check(cell){
         }
         //checks for duplicate numbers in a column
         if(row!==`${i}`){
-            let c=document.getElementById(`cell${i}${column}`);
+            let c=document.getElementById(`cell${i}${column}`).children[0];
             if(c.innerHTML===cell.innerHTML && c.innerHTML!==""){
                 cell.style.color="red";
                 correct=false;
@@ -108,7 +113,7 @@ function check(cell){
     for(let i=R;i<R+3;i++){
         for(let j=C;j<C+3;j++){
             if(minibox!==`${i}${j}`){
-                let c=document.getElementById(`cell${i}${j}`);
+                let c=document.getElementById(`cell${i}${j}`).children[0];
                 if(c.innerHTML===cell.innerHTML && c.innerHTML!==""){
                     cell.style.color="red";
                     correct=false;
