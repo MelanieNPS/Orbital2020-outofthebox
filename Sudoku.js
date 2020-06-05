@@ -134,6 +134,7 @@ function checkall(){
     }
 }
 
+//click / keyboard functions for the table cells
 function group(){
     let cellnumber = document.getElementsByClassName("cellnumber");
     for(let i=0;i<9;i++){
@@ -249,5 +250,51 @@ function notes(){
         }
     }
 }
-
 notes();
+
+
+
+//Section for timer
+var hours = document.getElementById("hours");
+var minutes = document.getElementById("minutes");
+var seconds = document.getElementById("seconds");
+let totaltime = 0;
+var timerPaused = false;
+var timerHidden = false;
+var timeInterval = setInterval(increaseTime, 1000);
+
+function increaseTime() {
+    totaltime += 1;
+    hours.innerHTML = change (parseInt(totaltime / 3600));
+    minutes.innerHTML = change (parseInt((totaltime % 3600) / 60));
+    seconds.innerHTML = change((totaltime % 3600) % 60);
+}
+function change(time){
+    var timing = time + "";
+    if (timing.length < 2) {
+        return "0" + timing;
+    } 
+    return timing;
+}
+function togglePause() {
+    if (!timerPaused){
+        clearInterval (timeInterval);
+        timerPaused = true;
+        document.getElementById("togglePause").innerHTML = "Start Timer";
+    } else {
+        timeInterval = setInterval(increaseTime, 1000);
+        timerPaused = false;
+        document.getElementById("togglePause").innerHTML = "Stop Timer";
+    }
+}
+function toggleShowTimer(){
+    if(!timerHidden){
+        document.getElementById("timer").style.display = "none";
+        timerHidden = true;
+        document.getElementById("toggleShowTimer").innerHTML = "Show Timer"
+    } else {
+        document.getElementById("timer").style.display = "block";
+        timerHidden = false;
+        document.getElementById("toggleShowTimer").innerHTML = "Hide Timer"
+    }
+}

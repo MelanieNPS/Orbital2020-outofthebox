@@ -11,7 +11,20 @@
 
 <body style="background-color: rgb(255, 255, 236); text-align:centre;">
 
+    <div class="tabBar">
+        <div class="tab">
+            <button class="tabButton"> Options </button>
+            <div class="tab-options">
+                <button id="toggleShowTimer" onclick="toggleShowTimer()"> Hide Timer </button>
+                <button id="togglePause" onclick="togglePause()"> Stop Timer</button>
+            </div>
+        </div>
+        <div id="timer">
+            <label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label>
+        </div>
+    </div>
   
+
     <div id="spacing"></div>
 
     <table id="box">

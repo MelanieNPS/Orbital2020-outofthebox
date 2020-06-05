@@ -1,3 +1,4 @@
+/*Style for sudoku grid*/
 #box{
     display: grid;
     border: 2px solid black;
@@ -33,7 +34,7 @@ td:focus{
 
 
 
-
+/* Style for number panel*/
 #control{
     display:grid;
     border: 2px solid black;
@@ -65,6 +66,7 @@ td:focus{
 
 
 
+/* Style for button panel */
 #control2 {
     display:grid;
     border: 1px solid rgb(29, 4, 23);
@@ -101,7 +103,7 @@ td:focus{
 }
 
 
-
+/* Style for notes */
 .notecell{
     position: relative;
     width: 33.3333%;
@@ -117,3 +119,49 @@ td:focus{
     height: 100%;
     font-size: 0px;
 }
+
+
+/* Style for tabs */
+.tabBar {
+    border: none;
+    background: none;
+    width: 500px;
+    margin: auto;
+}
+ .tabButton {
+    background-color: #F1CDB0;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    width: 100px;
+  }
+  .tab {
+    position: relative;
+    display: inline-block;
+  }
+  .tab-options {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .tab-options button {
+    padding: 12px 12px;
+    font-size: 14px;
+    display: block;
+    width: 100px;
+    background-color: wheat;
+    border: none;
+  }
+  .tab-options button:hover {background-color: rgb(243, 229, 202);}
+  .tab:hover .tab-options {display: block;}
+  .tab:hover .tabButton {background-color: rgb(238, 218, 201);}
+
+
+  #timer{
+      float: right;
+      font-size: 20px;
+      margin-top: 30px;
+      display: block;
+  }
