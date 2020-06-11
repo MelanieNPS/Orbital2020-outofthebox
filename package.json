@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-      "start": "node sudoku.js"
+      "start": "node index.js"
     },
     "engines": {
       "node": "12.18.0"
