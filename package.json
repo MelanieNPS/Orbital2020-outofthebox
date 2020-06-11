@@ -2,9 +2,9 @@
   "name": "orbital2020-outofthebox-1",
   "version": "1.0.0",
   "description": "",
-  "main": "Sudoku.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "index.js"
   },
   "engines": {
     "node": "12.18.0"
@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/IlyaRin/Orbital2020-outofthebox/issues"
   },
-  "homepage": "https://github.com/IlyaRin/Orbital2020-outofthebox#readme"
+  "homepage": "https://github.com/IlyaRin/Orbital2020-outofthebox#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "pg": "^8.2.1"
+  }
 }
