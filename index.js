@@ -19,4 +19,6 @@ app.get("/all", async (req,res) => {
 
 })
 
-app.listen( 9000 || process.env.PORT, () => console.log("Listening on port 9000"))
+var port=process.env.PORT|| 9000;
+
+app.listen(port, () => console.log("Listening on port 9000"))
