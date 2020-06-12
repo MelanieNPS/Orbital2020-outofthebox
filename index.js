@@ -14,7 +14,6 @@ const pool = new Pool({
 
 app.get("/", async (req,res) => {
 
-  res.render("index")
   const results = await pool.query("SELECT * FROM sudoku")
   console.table (results.rows)
 
