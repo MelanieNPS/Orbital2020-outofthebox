@@ -1,10 +1,9 @@
 const app = require("express")();
 const {Pool} = require('pg')
 require("dotenv").config()
-var connectionString= "postgres://fivlromeqlnjrg:edd0b21807802ec53e54e005a67ffc8f01d5f8efc80db81a890614b0a77ee3b7@ec2-54-246-87-132.eu-west-1.compute.amazonaws.com:5432/dasj74f4uq4dcp"
 
 const pool = new Pool({
-  connectionString: connectionString,
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   },
@@ -13,11 +12,14 @@ const pool = new Pool({
   idleTimeoutMillis : 0,
 })
 
-app.get("/all", async (req,res) => {
+app.get("/", async (req,res) => {
 
   const results = await pool.query("SELECT * FROM sudoku")
   console.table (results.rows)
 
+  res.send({"rows": results.rows, "method": "pool"})
 })
 
-app.listen(process.env.PORT || 9000)
+var port=process.env.PORT|| 9000;
+
+app.listen(port, () => console.log("Listening on port 9000"))
