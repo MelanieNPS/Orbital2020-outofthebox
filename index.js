@@ -14,9 +14,6 @@ const pool = new Pool({
   idleTimeoutMillis : 0,
 })
 
-//app.get("/",(req,res)=>res.sendFile(`${__dirname}/index.html`))
-app.use( '/' , express.static(path.join(__dirname ,'/..' ,'public')))
-
 app.get("/", async (req,res) => {
 
   const results = await pool.query("SELECT * FROM sudoku")
@@ -24,6 +21,9 @@ app.get("/", async (req,res) => {
 
   res.send({"rows": results.rows, "method": "pool"})
 })
+
+//app.get("/",(req,res)=>res.sendFile(`${__dirname}/index.html`))
+app.use( '/' , express.static(path.join(__dirname ,'/..' ,'public')))
 
 var port=process.env.PORT|| 9000;
 
