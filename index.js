@@ -12,8 +12,9 @@ const pool = new Pool({
   idleTimeoutMillis : 0,
 })
 
-app.get("/all", async (req,res) => {
+app.get("/", async (req,res) => {
 
+  res.render("index")
   const results = await pool.query("SELECT * FROM sudoku")
   console.table (results.rows)
 
