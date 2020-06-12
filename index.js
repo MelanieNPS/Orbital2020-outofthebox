@@ -12,6 +12,7 @@ const pool = new Pool({
   idleTimeoutMillis : 0,
 })
 
+app.get("/",(req,res)=>res.sendFile(`${__dirname}`/index.html))
 app.get("/", async (req,res) => {
 
   const results = await pool.query("SELECT * FROM sudoku")
