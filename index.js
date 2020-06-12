@@ -12,4 +12,3 @@ const client = new Client({
 client.connect()
 .then(()=>console.log("connected"))
 .catch(e=>console.log(e))
-.finally(()=>client.end())
