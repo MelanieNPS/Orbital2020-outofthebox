@@ -1,4 +1,6 @@
-const app = require("express")();
+const express = require("express");
+const app=express();
+const path = require('path');
 const {Pool} = require('pg')
 require("dotenv").config()
 
@@ -12,7 +14,9 @@ const pool = new Pool({
   idleTimeoutMillis : 0,
 })
 
-app.get("/",(req,res)=>res.sendFile(`${__dirname}`/index.html))
+//app.get("/",(req,res)=>res.sendFile(`${__dirname}/index.html`))
+app.use( '/' , express.static(path.join(__dirname ,'/..' ,'public')))
+
 app.get("/", async (req,res) => {
 
   const results = await pool.query("SELECT * FROM sudoku")
