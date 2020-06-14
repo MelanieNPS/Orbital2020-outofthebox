@@ -335,9 +335,8 @@ function setBoard(){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
                 cellnumber[index].className += "readOnly";
             } else {
-                cellnumber[index].classList.remove("readOnly");
+                cellnumber[index].className.remove("readOnly");
                 cellnumber[index].innerHTML="&nbsp"
-
             }
         }
     }
