@@ -333,10 +333,10 @@ function setBoard(){
             let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
-                cellnumber[index].className += "readOnly";
+                cellnumber[index].className.add("readOnly");
             } else {
                 cellnumber[index].className.remove("readOnly");
-                cellnumber[index].innerHTML="&nbsp"
+                cellnumber[index].innerHTML= "";
             }
         }
     }
