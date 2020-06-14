@@ -303,7 +303,9 @@ function toggleShowTimer(){
 
 
 //Database functions
+readString();
 var puzzle = "";
+setBoard();
 
 async function readString(){
     try {
@@ -312,7 +314,6 @@ async function readString(){
         
         puzzleString.forEach (t => {
             puzzle = t.puzzle_string;
-            document.getElementById("String").innerHTML = t.puzzle_string;
         })
 
     }
@@ -323,6 +324,7 @@ async function readString(){
 
 
 function setBoard(){
+    let cellnumber = document.getElementsByClassName("cellnumber");
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
             let index = (i * 9) + j;
@@ -330,7 +332,7 @@ function setBoard(){
             if (puzzle.charAt(index) != 0){
                 cell.innerHTML = puzzle.charAt(index);
             } else {
-                cell.innerHTML = "&nbsp";
+                cellnumber[index] = "&nbsp";
             }
         }
     }
