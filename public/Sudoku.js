@@ -328,17 +328,17 @@ function setBoard(){
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
             let index = (i * 9) + j;
-            let cell = document.getElementById("cell" + i + j);
             if (puzzle.charAt(index) != 0){
-                cell.innerHTML = puzzle.charAt(index);
+                cellnumber[index].innerHTML= puzzle.charAt(index);
             } else {
-                cellnumber[index] = "&nbsp";
+                cellnumber[index].innerHTML="&nbsp"
             }
         }
     }
 }
 
 function newgame(){
+    clearAll();
     readString();
     setBoard();
 }
