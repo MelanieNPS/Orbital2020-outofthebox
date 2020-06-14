@@ -307,7 +307,7 @@ async function readString(){
     try {
         const result = await fetch ("http://sudokudatabase.herokuapp.com/puzzleString", {method:"GET"})
         const puzzleString = await result.json();
-        document.getElementById("String").innerHTML = puzzleString;
+        document.getElementById("String").innerHTML = puzzleString.puzzle_string;
 
     }
     catch (e) {
