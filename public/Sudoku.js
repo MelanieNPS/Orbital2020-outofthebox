@@ -324,14 +324,17 @@ async function readString(){
 
 function setBoard(){
     let cellnumber = document.getElementsByClassName("cellnumber");
-    for (var i = 0; i < 81; i++){
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
-                cellnumber[i].innerHTML= puzzle.charAt(index);
+                cellnumber[index].innerHTML= puzzle.charAt(index);
             } else {
-                cellnumber[i].innerHTML= "";
+                cellnumber[index].innerHTML="&nbsp"
             }
         }
     }
+}
 
 
 function newgame(){
