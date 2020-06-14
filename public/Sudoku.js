@@ -336,7 +336,7 @@ function setBoard(){
     }
 }
 
-function newGame(){
+function newgame(){
     readString();
     setBoard();
 }
