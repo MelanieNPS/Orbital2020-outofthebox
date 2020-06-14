@@ -298,6 +298,9 @@ function toggleShowTimer(){
         document.getElementById("toggleShowTimer").innerHTML = "Hide Timer"
     }
 }
+function resetTimer(){
+    totaltime = 0;
+}
 
 
 
@@ -330,8 +333,11 @@ function setBoard(){
             let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
+                cellnumber[index].className += "readOnly";
             } else {
+                cellnumber[index].classList.remove("readOnly");
                 cellnumber[index].innerHTML="&nbsp"
+
             }
         }
     }
@@ -341,4 +347,5 @@ function newgame(){
     clearAll();
     readString();
     setBoard();
+    resetTimer();
 }

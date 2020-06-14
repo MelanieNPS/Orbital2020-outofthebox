@@ -21,4 +21,6 @@
     }
   });
 
+  $('.readOnly').children().attr('readonly', true);
+
  });
