@@ -301,14 +301,17 @@ function toggleShowTimer(){
 
 
 
+
 //Database functions
-readString();
+var puzzle = "";
+
 async function readString(){
     try {
         const result = await fetch ("http://sudokudatabase.herokuapp.com/puzzleString", {method:"GET"})
         const puzzleString = await result.json();
         
         puzzleString.forEach (t => {
+            puzzle = t.puzzle_string;
             document.getElementById("String").innerHTML = t.puzzle_string;
         })
 
@@ -318,3 +321,22 @@ async function readString(){
     }
 }
 
+
+function setBoard(){
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = (i * 9) + j;
+            let cell = document.getElementById("cell" + i + j);
+            if (puzzle.charAt(index) != 0){
+                cell.innerHTML = puzzle.charAt(index);
+            } else {
+                cell.innerHTML = "&nbsp";
+            }
+        }
+    }
+}
+
+function newGame(){
+    readString();
+    setBoard();
+}
