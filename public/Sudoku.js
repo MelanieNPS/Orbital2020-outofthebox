@@ -298,19 +298,13 @@ function toggleShowTimer(){
         document.getElementById("toggleShowTimer").innerHTML = "Hide Timer"
     }
 }
-function resetTimer(){
-    clearInterval (timeInterval);
-    totaltime = 0;
-    timeInterval = setInterval(increaseTime, 1000);
-}
 
 
 
 
 //Database functions
-readString();
 var puzzle = "";
-setBoard();
+newgame();
 
 async function readString(){
     try {
@@ -344,5 +338,4 @@ function newgame(){
     clearAll();
     readString();
     setBoard();
-    resetTimer();
 }
