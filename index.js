@@ -20,6 +20,23 @@ app.get("/", async (req,res) => {
   res.sendFile(__dirname + '/index.html')
 })
 
+app.get("/puzzleString", async(req, res) => {
+  const puzzle = await readOneRow();
+  res.setHeader ("content-type", "application/json")
+  res.send(JSON.stringify(puzzle))
+})
+
+
+async function readOneRow(){
+  try {
+    const results = await pool.query("SELECT * FROM sudoku ORDER BY random() LIMIT 1");
+    return results.rows;
+  } 
+  catch(e){
+    return [];
+  }
+}
+
 //app.get("/",(req,res)=>res.sendFile(`${__dirname}/index.html`))
 
 

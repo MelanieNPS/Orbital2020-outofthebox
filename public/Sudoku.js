@@ -298,3 +298,19 @@ function toggleShowTimer(){
         document.getElementById("toggleShowTimer").innerHTML = "Hide Timer"
     }
 }
+
+
+//Database functions
+readString();
+function readString(){
+    try {
+        const result = await fetch ("http://sudokudatabase.herokuapp.com/puzzleString", {method:"GET"})
+        const puzzleString = await result.json();
+        document.getElementById("String").innerHTML = puzzleString;
+
+    }
+    catch (e) {
+        console.log("error reading puzzleString")
+    }
+}
+
