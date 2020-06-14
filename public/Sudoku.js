@@ -300,9 +300,10 @@ function toggleShowTimer(){
 }
 
 
+
 //Database functions
 readString();
-function readString(){
+async function readString(){
     try {
         const result = await fetch ("http://sudokudatabase.herokuapp.com/puzzleString", {method:"GET"})
         const puzzleString = await result.json();
