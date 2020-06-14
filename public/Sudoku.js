@@ -299,7 +299,9 @@ function toggleShowTimer(){
     }
 }
 function resetTimer(){
+    clearInterval (timeInterval);
     totaltime = 0;
+    timeInterval = setInterval(increaseTime, 1000);
 }
 
 
@@ -328,19 +330,15 @@ async function readString(){
 
 function setBoard(){
     let cellnumber = document.getElementsByClassName("cellnumber");
-    for (var i = 0; i < 9; i++){
-        for (var j = 0; j < 9; j++){
-            let index = (i * 9) + j;
+    for (var i = 0; i < 81; i++){
             if (puzzle.charAt(index) != 0){
-                cellnumber[index].innerHTML= puzzle.charAt(index);
-                cellnumber[index].className.add("readOnly");
+                cellnumber[i].innerHTML= puzzle.charAt(index);
             } else {
-                cellnumber[index].className.remove("readOnly");
-                cellnumber[index].innerHTML= "";
+                cellnumber[i].innerHTML= "";
             }
         }
     }
-}
+
 
 function newgame(){
     clearAll();
