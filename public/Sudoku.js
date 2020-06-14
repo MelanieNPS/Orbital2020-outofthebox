@@ -308,7 +308,7 @@ newgame();
 
 async function readString(){
     try {
-        const result = await fetch ("http://sudokudatabase.herokuapp.com/puzzleString", {method:"GET"})
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleString", {method:"GET"})
         const puzzleString = await result.json();
         
         puzzleString.forEach (t => {
