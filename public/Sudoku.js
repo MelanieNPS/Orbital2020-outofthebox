@@ -328,7 +328,7 @@ async function readString(){
 function newgame(){
     readString()
     .then(()=>{
-        let cellnumber = document.getElementsByClassName("cellnumber");
+    let cellnumber = document.getElementsByClassName("cellnumber");
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
             let index = (i * 9) + j;
@@ -337,6 +337,7 @@ function newgame(){
             } else {
                 cellnumber[index].innerHTML="&nbsp"
             }
+            cellnumber[index].style.color="black";
         }
     }
     })
