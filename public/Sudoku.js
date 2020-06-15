@@ -340,4 +340,5 @@ function newgame(){
     clearAll();
     readString();
     setBoard();
+    setBoard();
 }
