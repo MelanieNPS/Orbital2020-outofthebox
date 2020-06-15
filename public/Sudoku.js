@@ -321,8 +321,11 @@ async function readString(){
 }
 
 
-function setBoard(){
-    let cellnumber = document.getElementsByClassName("cellnumber");
+function newgame(){
+    clearAll();
+    readString()
+    .then(()=>{
+        let cellnumber = document.getElementsByClassName("cellnumber");
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
             let index = (i * 9) + j;
@@ -333,12 +336,6 @@ function setBoard(){
             }
         }
     }
-}
-
-
-function newgame(){
-    clearAll();
-    readString();
-    setBoard();
-    setBoard();
+    })
+    .catch((e)=>console.log(e))
 }
