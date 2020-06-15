@@ -25,10 +25,14 @@ function clearAll(){
     let c = document.getElementsByClassName("cellnumber");
     let d = document.getElementsByClassName("notecell");
     for (let i = 0; i<81; i++){
-        c[i].innerHTML = "";
+        if(puzzle[i]==="0"){
+            c[i].innerHTML = "";
+        }
     }
     for (let i = 0; i<729; i++){
-        d[i].innerHTML = "";
+        if(puzzle[Math.floor(i/9)]==="0"){
+            d[i].innerHTML = "";
+        }
     }
 }
 
@@ -146,7 +150,7 @@ function group(){
             c.addEventListener("click", eraseCell);
             c.addEventListener("keypress",keyboard);
             function keyboard(event){
-                if(!togglenote){
+                if(!togglenote && puzzle[index]==="0"){
                     let h=event.key;
                     var numbers = /^[1-9]+$/;
                     if (numbers.test(h)){       //Only allow control from 1 to 9
@@ -163,7 +167,7 @@ function group(){
                 } 
             }
             function change(){
-                if(clickmode && k!==undefined && !togglenote){
+                if(clickmode && k!==undefined && !togglenote && puzzle[index]==="0"){
                     for (let k =0; k< notecell.length; k++){
                         notecell[k].innerHTML="";
                     }
@@ -174,7 +178,7 @@ function group(){
                 } 
             }
             function eraseCell(){
-                if(erase && !(clickmode || togglenote)){
+                if(erase && !(clickmode || togglenote) && puzzle[index]==="0"){
                     cellnumber[index].innerHTML = "&nbsp";
                     for (let k =0; k< notecell.length; k++){
                         notecell[k].innerHTML="";
@@ -231,7 +235,7 @@ function notes(){
                 }
             }
             function changeKeyboard(){
-                if (togglenote) {
+                if (togglenote && puzzle[index]==="0") {
                     let h=event.key;
                     var numbers = /^[1-9]+$/;
                     let notecell = cell.getElementsByClassName("notecell");    
@@ -303,7 +307,7 @@ function toggleShowTimer(){
 
 
 //Database functions
-var puzzle = "";
+var puzzle = "000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 newgame();
 
 async function readString(){
