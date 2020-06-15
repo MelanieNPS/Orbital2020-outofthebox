@@ -25,14 +25,10 @@ function clearAll(){
     let c = document.getElementsByClassName("cellnumber");
     let d = document.getElementsByClassName("notecell");
     for (let i = 0; i<81; i++){
-        if(puzzle[i]==="0"){
-            c[i].innerHTML = "";
-        }
+        c[i].innerHTML = "";
     }
     for (let i = 0; i<729; i++){
-        if(puzzle[Math.floor(i/9)]==="0"){
-            d[i].innerHTML = "";
-        }
+        d[i].innerHTML = "";
     }
 }
 
@@ -308,7 +304,6 @@ function toggleShowTimer(){
 
 //Database functions
 var puzzle = "000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-newgame();
 
 async function readString(){
     try {
