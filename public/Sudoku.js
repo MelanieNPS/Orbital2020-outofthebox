@@ -25,10 +25,14 @@ function clearAll(){
     let c = document.getElementsByClassName("cellnumber");
     let d = document.getElementsByClassName("notecell");
     for (let i = 0; i<81; i++){
-        c[i].innerHTML = "";
+        if(puzzle[i]==="0"){
+            c[i].innerHTML = "";
+        }
     }
     for (let i = 0; i<729; i++){
-        d[i].innerHTML = "";
+        if(puzzle[Math.floor(i/9)]==="0"){
+            d[i].innerHTML = "";
+        }
     }
 }
 
@@ -322,7 +326,6 @@ async function readString(){
 
 
 function newgame(){
-    clearAll();
     readString()
     .then(()=>{
         let cellnumber = document.getElementsByClassName("cellnumber");
