@@ -370,11 +370,16 @@ async function changeDifficulty(newDifficulty){
         const result = await fetch ("https://sudokudatabase.herokuapp.com/difficulty", {method: "POST",
         headers: {"content-type": "application/json"}, body: JSON.stringify(jsonRequest) });
         await result.json();
-        document.getElementById("test").innerHTML = newDifficulty;
     }
     catch (e){
         console.log("error changing difficulty")
     }
+}
+
+function changedifficulty(newdifficulty){
+    changeDifficulty(newdifficulty)
+    .then(() =>
+    document.getElementById("test").innerHTML = newdifficulty)
 }
 
 document.getElementById("easy").addEventListener("click", changeDifficulty("Easy"));
