@@ -43,7 +43,7 @@ app.post("/difficulty", async (req,res) => {
   }
 })
 
-const results = await pool.query("SELECT * FROM sudoku ORDER BY random() LIMIT 1");
+const results = "";
 async function readOneRow(){
   try {
     return results.rows;
