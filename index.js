@@ -26,43 +26,9 @@ app.get("/puzzleString", async(req, res) => {
   res.send(JSON.stringify(puzzle))
 })
 
-var difficulty = "Easy"
-app.post("/puzzleString", async (req,res) => {
-  let result = {}
-  try{
-    difficulty = req.body.difficulty;
-    result.success = true;
-  } 
-  catch(e){
-    result.success = false;
-  }
-  finally {
-    res.setHeader("content-type", "application/json")
-    res.send(JSON.stringify(result))
-  }
-})
-
-
 async function readOneRow(){
-  const results = await pool.query("SELECT * FROM sudoku ORDER BY random() LIMIT 1");
   try {
-    switch(difficulty){
-      case "Easy":
-        results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Easy' ORDER BY random() LIMIT 1");
-        break;
-      
-       case "Medium" :
-        results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Medium' ORDER BY random() LIMIT 1");
-        break;
-
-       case "Hard" :
-        results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Hard' ORDER BY random() LIMIT 1");
-        break;
-
-       case "Expert" :
-        results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Expert' ORDER BY random() LIMIT 1"); 
-        break;
-    }
+    const results = await pool.query("SELECT * FROM sudoku ORDER BY random() LIMIT 1");
     return results.rows;
   } 
   catch(e){
