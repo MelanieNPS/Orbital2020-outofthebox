@@ -317,7 +317,7 @@ async function readString(){
         
         puzzleString.forEach (t => {
             puzzle = t.puzzle_string;
-            solved = t.solv
+            solved = t.solved_string;
         })
 
     }
