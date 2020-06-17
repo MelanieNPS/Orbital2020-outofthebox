@@ -308,6 +308,8 @@ function toggleShowTimer(){
 
 //Database functions
 var puzzle = "000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+var solved = "000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+let difficulty="Easy";
 
 async function readString(){
     try {
@@ -342,4 +344,12 @@ function newgame(){
     }
     })
     .catch((e)=>console.log(e))
+}
+
+
+function changeDifficulty(){
+    const jsonRequest = {}
+    jsonRequest.difficulty = difficulty
+    const result = await fetch ("https://sudokudatabase.herokuapp.com/difficulty", {method: "CHANGE",
+    headers: {"content-type": "application/json"}, body: JSON.stringify(jsonRequest) })
 }
