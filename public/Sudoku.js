@@ -369,6 +369,7 @@ async function changeDifficulty(newDifficulty){
         jsonRequest.difficulty = newDifficulty;
         const result = await fetch ("https://sudokudatabase.herokuapp.com/difficulty", {method: "POST",
         headers: {"content-type": "application/json"}, body: JSON.stringify(jsonRequest) });
+        await result.json();
         document.getElementById("test").innerHTML = newDifficulty;
     }
     catch (e){
@@ -376,7 +377,7 @@ async function changeDifficulty(newDifficulty){
     }
 }
 
-document.getElementById("easy").addEventListener('click', changeDifficulty("Easy"));
-document.getElementById("medium").addEventListener('click', changeDifficulty("Medium"));
-document.getElementById("hard").addEventListener('click', changeDifficulty("Hard"));
-document.getElementById("expert").addEventListener('click', changeDifficulty("Expert"));
+document.getElementById("easy").addEventListener("click", changeDifficulty("Easy"));
+document.getElementById("medium").addEventListener("click", changeDifficulty("Medium"));
+document.getElementById("hard").addEventListener("click", changeDifficulty("Hard"));
+document.getElementById("expert").addEventListener("click", changeDifficulty("Expert"));
