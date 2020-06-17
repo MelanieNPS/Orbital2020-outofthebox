@@ -21,32 +21,29 @@ app.use(express.static('public'))
 app.get("/", async (req,res) => {
   res.sendFile(__dirname + '/index.html')
 })
-
-app.get("/puzzleString", async(req, res) => {
-  const puzzle = await readOneRow();
+app.get("/puzzleStringEasy", async(req, res) => {
+  const puzzle = await readOneRowEasy();
+  res.setHeader ("content-type", "application/json")
+  res.send(JSON.stringify(puzzle))
+})
+app.get("/puzzleStringMedium", async(req, res) => {
+  const puzzle = await readOneRowMedium();
+  res.setHeader ("content-type", "application/json")
+  res.send(JSON.stringify(puzzle))
+})
+app.get("/puzzleStringHard", async(req, res) => {
+  const puzzle = await readOneRowHard();
+  res.setHeader ("content-type", "application/json")
+  res.send(JSON.stringify(puzzle))
+})
+app.get("/puzzleStringExpert", async(req, res) => {
+  const puzzle = await readOneRowExpert();
   res.setHeader ("content-type", "application/json")
   res.send(JSON.stringify(puzzle))
 })
 
-var difficulty = "Easy"
-app.post("/difficulty", async (req,res) => {
-  let result = {}
-  try{
-    const reqJson = req.body;
-    await updateDifficulty(reqJson.difficulty)
-    result.success = true;
-  } 
-  catch(e){
-    result.success = false
-  }
-  finally {
-    res.setHeader("content-type", "application/json")
-    res.send(JSON.stringify(result));
-  }
-})
 
-
-async function readOneRow(){
+async function readOneRowEasy(){
   try {
     const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Easy' ORDER BY random() LIMIT 1"); 
     return results.rows;
@@ -55,17 +52,33 @@ async function readOneRow(){
     return [];
   }
 }
-
-async function updateDifficulty(difficultyLevel){
-  try{
-    difficulty = difficultyLevel;
-    return true;
-  }
+async function readOneRowMedium(){
+  try {
+    const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Medium' ORDER BY random() LIMIT 1"); 
+    return results.rows;
+  } 
   catch(e){
-    return false;
+    return [];
   }
 }
-
+async function readOneRowHard(){
+  try {
+    const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Hard' ORDER BY random() LIMIT 1"); 
+    return results.rows;
+  } 
+  catch(e){
+    return [];
+  }
+}
+async function readOneRowExpert(){
+  try {
+    const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Expert' ORDER BY random() LIMIT 1"); 
+    return results.rows;
+  } 
+  catch(e){
+    return [];
+  }
+}
 //app.get("/",(req,res)=>res.sendFile(`${__dirname}/index.html`))
 
 

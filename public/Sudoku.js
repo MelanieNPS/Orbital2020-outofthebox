@@ -310,25 +310,115 @@ function toggleShowTimer(){
 var puzzle = "000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 var solved = "000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 
-async function readString(){
+async function readStringEasy(){
     try {
-        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleString", {method:"GET"})
-        const puzzleString = await result.json();
-        
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringEasy", {method:"GET"})
+        const puzzleString = await result.json();  
         puzzleString.forEach (t => {
             puzzle = t.puzzle_string;
             solved = t.solved_string;
         })
-
+    }
+    catch (e) {
+        console.log("error reading puzzleString")
+    }
+}
+async function readStringMedium(){
+    try {
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringMedium", {method:"GET"})
+        const puzzleString = await result.json();  
+        puzzleString.forEach (t => {
+            puzzle = t.puzzle_string;
+            solved = t.solved_string;
+        })
+    }
+    catch (e) {
+        console.log("error reading puzzleString")
+    }
+}
+async function readStringHard(){
+    try {
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringHard", {method:"GET"})
+        const puzzleString = await result.json();  
+        puzzleString.forEach (t => {
+            puzzle = t.puzzle_string;
+            solved = t.solved_string;
+        })
+    }
+    catch (e) {
+        console.log("error reading puzzleString")
+    }
+}
+async function readStringExpert(){
+    try {
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringExpert", {method:"GET"})
+        const puzzleString = await result.json();  
+        puzzleString.forEach (t => {
+            puzzle = t.puzzle_string;
+            solved = t.solved_string;
+        })
     }
     catch (e) {
         console.log("error reading puzzleString")
     }
 }
 
-
-function newgame(){
-    readString()
+function newgameEasy(){
+    readStringEasy()
+    .then(()=>{
+    let cellnumber = document.getElementsByClassName("cellnumber");
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = (i * 9) + j;
+            if (puzzle.charAt(index) != 0){
+                cellnumber[index].innerHTML= puzzle.charAt(index);
+            } else {
+                cellnumber[index].innerHTML="&nbsp"
+            }
+            cellnumber[index].style.color="black";
+        }
+    }
+    })
+    .catch((e)=>console.log(e))
+}
+function newgameMedium(){
+    readStringMedium()
+    .then(()=>{
+    let cellnumber = document.getElementsByClassName("cellnumber");
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = (i * 9) + j;
+            if (puzzle.charAt(index) != 0){
+                cellnumber[index].innerHTML= puzzle.charAt(index);
+            } else {
+                cellnumber[index].innerHTML="&nbsp"
+            }
+            cellnumber[index].style.color="black";
+        }
+    }
+    })
+    .catch((e)=>console.log(e))
+}
+function newgameHard(){
+    readStringHard()
+    .then(()=>{
+    let cellnumber = document.getElementsByClassName("cellnumber");
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = (i * 9) + j;
+            if (puzzle.charAt(index) != 0){
+                cellnumber[index].innerHTML= puzzle.charAt(index);
+            } else {
+                cellnumber[index].innerHTML="&nbsp"
+            }
+            cellnumber[index].style.color="black";
+        }
+    }
+    })
+    .catch((e)=>console.log(e))
+}
+function newgameExpert(){
+    readStringExpert()
     .then(()=>{
     let cellnumber = document.getElementsByClassName("cellnumber");
     for (var i = 0; i < 9; i++){
@@ -346,6 +436,7 @@ function newgame(){
     .catch((e)=>console.log(e))
 }
 
+
 function showSolved(){
     let cellnumber = document.getElementsByClassName("cellnumber");
     for (var i = 0; i < 9; i++){
@@ -358,31 +449,3 @@ function showSolved(){
 }
 
 
-
-//Function for difficulty
-var difficulty="Easy";
-
-async function changeDifficulty(newDifficulty){
-    try{
-        difficulty = newDifficulty;
-        const jsonRequest = {};
-        jsonRequest.difficulty = newDifficulty;
-        const result = await fetch ("https://sudokudatabase.herokuapp.com/difficulty", {method: "POST",
-        headers: {"content-type": "application/json"}, body: JSON.stringify(jsonRequest) });
-        await result.json();
-    }
-    catch (e){
-        console.log("error changing difficulty")
-    }
-}
-
-function changedifficulty(newdifficulty){
-    changeDifficulty(newdifficulty)
-    .then(() =>
-    document.getElementById("test").innerHTML = newdifficulty)
-}
-
-document.getElementById("easy").addEventListener("click", changeDifficulty("Easy"));
-document.getElementById("medium").addEventListener("click", changeDifficulty("Medium"));
-document.getElementById("hard").addEventListener("click", changeDifficulty("Hard"));
-document.getElementById("expert").addEventListener("click", changeDifficulty("Expert"));
