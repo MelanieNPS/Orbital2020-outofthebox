@@ -26,17 +26,26 @@ app.get("/puzzleString", async(req, res) => {
   res.send(JSON.stringify(puzzle))
 })
 
-let difficulty = 'Easy'
-app.change("/difficulty", async (req,res) => {
-  difficulty = req.body.difficulty;
-  res.setHeader("content-type", "application/json")
-  res.send(JSON.stringify(result))
+let difficulty = Easy
+app.post("/difficulty", async (req,res) => {
+  let result = {}
+  try{
+    difficulty = req.body.difficulty;
+    result.success = true;
+  } 
+  catch(e){
+    result.success = false;
+  }
+  finally {
+    res.setHeader("content-type", "application/json")
+    res.send(JSON.stringify(result))
+  }
 })
 
 
 async function readOneRow(difficulty){
   try {
-    const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='"+difficulty+"' ORDER BY random() LIMIT 1");
+    const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='"+ difficulty +"' ORDER BY random() LIMIT 1");
     return results.rows;
   } 
   catch(e){

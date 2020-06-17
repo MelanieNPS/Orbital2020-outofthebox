@@ -19,6 +19,13 @@
                 <button id="togglePause" onclick="togglePause()"> Stop Timer</button>
                 <button id="newGame" onclick="newgame()"> New Game</button>
             </div>
+            <button class="tabButton"> Difficulty </button>
+            <div class="tab-options">
+                <button id="easy" onclick="changeDifficulty(Easy)"> Easy  </button>
+                <button id="medium" onclick="changeDifficulty(Medium)"> Medium </button>
+                <button id="hard"  onclick="changeDifficulty(Hard)"> Hard </button>
+                <button id="expert" onclick="changeDifficulty(Expert)"> Expert </button>
+            </div>
         </div>
         <div id="timer">
             <label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label>
