@@ -360,13 +360,18 @@ function showSolved(){
 //Function for difficulty
 var difficulty="Easy";
 
-function changeDifficulty(newDifficulty){
-    const jsonRequest = {}
-    difficulty = newDifficulty
-    jsonRequest.difficulty = difficulty
-    const result = await fetch ("https://sudokudatabase.herokuapp.com/difficulty", {method: "POST",
-    headers: {"content-type": "application/json"}, body: JSON.stringify(jsonRequest) })
-    const success = await result.json();
+async function changeDifficulty(newDifficulty){
+    try{
+        const jsonRequest = {}
+        difficulty = newDifficulty
+        jsonRequest.difficulty = difficulty
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/difficulty", {method: "POST",
+        headers: {"content-type": "application/json"}, body: JSON.stringify(jsonRequest) })
+        const success = await result.json();
+    }
+    catch (e){
+        console.log("error changing difficulty")
+    }
 }
 
 document.getElementById("easy").addEventListener('click', changeDifficulty("Easy"))
