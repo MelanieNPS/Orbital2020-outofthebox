@@ -41,6 +41,11 @@ app.get("/puzzleStringExpert", async(req, res) => {
   res.setHeader ("content-type", "application/json")
   res.send(JSON.stringify(puzzle))
 })
+app.get("/puzzleStringRandom", async(req, res) => {
+  const puzzle = await readOneRowRandom();
+  res.setHeader ("content-type", "application/json")
+  res.send(JSON.stringify(puzzle))
+})
 
 
 async function readOneRowEasy(){
@@ -73,6 +78,15 @@ async function readOneRowHard(){
 async function readOneRowExpert(){
   try {
     const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Expert' ORDER BY random() LIMIT 1"); 
+    return results.rows;
+  } 
+  catch(e){
+    return [];
+  }
+}
+async function readOneRowRandom(){
+  try {
+    const results = await pool.query("SELECT * FROM sudoku ORDER BY random() LIMIT 1"); 
     return results.rows;
   } 
   catch(e){

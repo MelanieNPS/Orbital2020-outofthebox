@@ -362,8 +362,23 @@ async function readStringExpert(){
         console.log("error reading puzzleString")
     }
 }
+async function readStringRandom(){
+    try {
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringRandom", {method:"GET"})
+        const puzzleString = await result.json();  
+        puzzleString.forEach (t => {
+            puzzle = t.puzzle_string;
+            solved = t.solved_string;
+        })
+    }
+    catch (e) {
+        console.log("error reading puzzleString")
+    }
+}
+
 
 function newgameEasy(){
+    document.getElementById("difficulty").innerHTML = "Easy";
     readStringEasy()
     .then(()=>{
     let cellnumber = document.getElementsByClassName("cellnumber");
@@ -382,6 +397,7 @@ function newgameEasy(){
     .catch((e)=>console.log(e))
 }
 function newgameMedium(){
+    document.getElementById("difficulty").innerHTML = "Medium";
     readStringMedium()
     .then(()=>{
     let cellnumber = document.getElementsByClassName("cellnumber");
@@ -400,6 +416,7 @@ function newgameMedium(){
     .catch((e)=>console.log(e))
 }
 function newgameHard(){
+    document.getElementById("difficulty").innerHTML = "Hard";
     readStringHard()
     .then(()=>{
     let cellnumber = document.getElementsByClassName("cellnumber");
@@ -418,6 +435,7 @@ function newgameHard(){
     .catch((e)=>console.log(e))
 }
 function newgameExpert(){
+    document.getElementById("difficulty").innerHTML = "Expert";
     readStringExpert()
     .then(()=>{
     let cellnumber = document.getElementsByClassName("cellnumber");
@@ -434,6 +452,35 @@ function newgameExpert(){
     }
     })
     .catch((e)=>console.log(e))
+}
+function newgameRandom(){
+    document.getElementById("difficulty").innerHTML = "Random";
+    readStringRandom()
+    .then(()=>{
+    let cellnumber = document.getElementsByClassName("cellnumber");
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = (i * 9) + j;
+            if (puzzle.charAt(index) != 0){
+                cellnumber[index].innerHTML= puzzle.charAt(index);
+            } else {
+                cellnumber[index].innerHTML="&nbsp"
+            }
+            cellnumber[index].style.color="black";
+        }
+    }
+    })
+    .catch((e)=>console.log(e))
+}
+function newgame(){
+    var difficulty = document.getElementById("difficulty").innerHTML;
+    switch (difficulty){
+        case "Easy":  newgameEasy();  break;
+        case "Medium": newgameMedium(); break;
+        case "Hard": newgameHard(); break;
+        case "Expert": newgameExpert(); break;
+        default: newgameRandom(); 
+    }
 }
 
 
