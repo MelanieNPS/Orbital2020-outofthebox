@@ -346,6 +346,17 @@ function newgame(){
     .catch((e)=>console.log(e))
 }
 
+function showSolved(){
+    let cellnumber = document.getElementsByClassName("cellnumber");
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = (i * 9) + j;
+            cellnumber[index].innerHTML= solved.charAt(index);
+            cellnumber[index].style.color="black";
+        }
+    }
+}
+
 //Function for difficulty
 var difficulty="Easy";
 

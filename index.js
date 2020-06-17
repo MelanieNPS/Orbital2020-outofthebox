@@ -44,28 +44,26 @@ app.post("/difficulty", async (req,res) => {
 
 
 async function readOneRow(){
+  const results = await pool.query("SELECT * FROM sudoku ORDER BY random() LIMIT 1");
   try {
     switch(difficulty){
       case "Easy":
-        const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Easy' ORDER BY random() LIMIT 1");
+        results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Easy' ORDER BY random() LIMIT 1");
         break;
       
        case "Medium" :
-        const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Medium' ORDER BY random() LIMIT 1");
+        results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Medium' ORDER BY random() LIMIT 1");
         break;
 
        case "Hard" :
-        const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Hard' ORDER BY random() LIMIT 1");
+        results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Hard' ORDER BY random() LIMIT 1");
         break;
 
        case "Expert" :
-        const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Expert' ORDER BY random() LIMIT 1"); 
-        break;
-
-       case "Random" :
-        const results = await pool.query("SELECT * FROM sudoku ORDER BY random() LIMIT 1");
+        results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Expert' ORDER BY random() LIMIT 1"); 
         break;
     }
+
     return results.rows;
   } 
   catch(e){
