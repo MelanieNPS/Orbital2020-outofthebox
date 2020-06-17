@@ -14,6 +14,8 @@ const pool = new Pool({
   idleTimeoutMillis : 0,
 })
 
+
+
 app.use(express.static('public'))
 
 app.get("/", async (req,res) => {
@@ -43,9 +45,10 @@ app.post("/difficulty", async (req,res) => {
   }
 })
 
-const results = "";
+
 async function readOneRow(){
   try {
+    const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Easy' ORDER BY random() LIMIT 1"); 
     return results.rows;
   } 
   catch(e){
@@ -55,23 +58,7 @@ async function readOneRow(){
 
 async function updateDifficulty(difficultyLevel){
   try{
-    switch(difficultyLevel){
-      case "Easy":
-        results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Easy' ORDER BY random() LIMIT 1");
-        break;
-      
-       case "Medium" :
-        results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Medium' ORDER BY random() LIMIT 1");
-        break;
-
-       case "Hard" :
-        results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Hard' ORDER BY random() LIMIT 1");
-        break;
-
-       case "Expert" :
-        results = await pool.query("SELECT * FROM sudoku WHERE difficulty='Expert' ORDER BY random() LIMIT 1"); 
-        break;
-    }
+    difficulty = difficultyLevel;
     return true;
   }
   catch(e){

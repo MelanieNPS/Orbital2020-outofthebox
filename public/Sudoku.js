@@ -357,18 +357,14 @@ function showSolved(){
     }
 }
 
+
+
 //Function for difficulty
 var difficulty="Easy";
 
 async function changeDifficulty(newDifficulty){
     try{
-        difficulty = newDifficulty;
-        const jsonRequest = {};
-        jsonRequest.difficulty = newdifficulty;
-        const result = await fetch ("https://sudokudatabase.herokuapp.com/difficulty", {method: "POST",
-        headers: {"content-type": "application/json"}, body: JSON.stringify(jsonRequest) });
-        const success = await result.json();
-        document.getElementById("test").innerHTML = difficulty;
+        document.getElementById("test").innerHTML = newDifficulty;
     }
     catch (e){
         console.log("error changing difficulty")
