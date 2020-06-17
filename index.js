@@ -26,7 +26,7 @@ app.get("/puzzleString", async(req, res) => {
   res.send(JSON.stringify(puzzle))
 })
 
-let difficulty = Easy
+let difficulty = 'Easy'
 app.post("/difficulty", async (req,res) => {
   let result = {}
   try{
@@ -43,9 +43,9 @@ app.post("/difficulty", async (req,res) => {
 })
 
 
-async function readOneRow(difficulty){
+async function readOneRow(){
   try {
-    const results = await pool.query("SELECT * FROM sudoku WHERE difficulty='"+ difficulty +"' ORDER BY random() LIMIT 1");
+    const results = await pool.query("SELECT * FROM sudoku WHERE difficulty="+ difficulty +" ORDER BY random() LIMIT 1");
     return results.rows;
   } 
   catch(e){
