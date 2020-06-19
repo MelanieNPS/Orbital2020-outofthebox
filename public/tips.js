@@ -7,5 +7,5 @@ function openpage(pagename) {
     for (let i = 0; i < tablinks.length; i++) {
       tablinks[i].style.backgroundColor = "";
     }
-    document.getElementById(pageName).style.display = "block";
+    document.getElementById(pagename).style.display = "block";
   }

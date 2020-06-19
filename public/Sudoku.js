@@ -133,6 +133,7 @@ function check(cell){
     }
 
     if(correct){
+        console.log(index);
         if(puzzle[index]!=="0"){
             cell.style.color="black";
         }
