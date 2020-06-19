@@ -21,6 +21,10 @@ app.use(express.static('public'))
 app.get("/", async (req,res) => {
   res.sendFile(__dirname + '/index.html')
 })
+app.get("/tips", async (req,res) => {
+  res.sendFile(__dirname + '/tips.html')
+})
+
 app.get("/puzzleStringEasy", async(req, res) => {
   const puzzle = await readOneRowEasy();
   res.setHeader ("content-type", "application/json")
