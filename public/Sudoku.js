@@ -134,10 +134,10 @@ function check(cell){
 
     if(correct){
         if(puzzle[index]!=="0"){
-            cell[index].style.color="black";
+            cell.style.color="black";
         }
         else{
-            cell[index].style.color="blue";
+            cell.style.color="blue";
         }
     }
 }
