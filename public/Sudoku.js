@@ -72,7 +72,12 @@ function autocheck(){
         Autocheck=false;
         let c=document.getElementsByClassName("cellnumber");
         for(let i=0;i<81;i++){
-            c[i].style.color="black";
+            if(puzzle[index]!=="0"){
+                c[i].style.color="black";
+            }
+            else{
+                c[i].style.color="blue";
+            }
         }
         document.getElementById("autocheck").style.backgroundColor="#F1CDB0";
     }
@@ -91,6 +96,7 @@ function check(cell){
     let R=Math.floor(row/3)*3;
     let C=Math.floor(column/3)*3;
     let correct=true;
+    let index=row*9+column;
     cell=cell.children[0];
 
     
@@ -127,7 +133,12 @@ function check(cell){
     }
 
     if(correct){
-        cell.style.color="black";
+        if(puzzle[index]!=="0"){
+            cell[index].style.color="black";
+        }
+        else{
+            cell[index].style.color="blue";
+        }
     }
 }
 
@@ -163,6 +174,9 @@ function group(){
                         }
                     } else {
                         cellnumber[index].innerHTML = "";
+                        if(Autocheck){
+                            checkall();
+                        }
                     }
                 } 
             }
@@ -387,10 +401,11 @@ function newgameEasy(){
             let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
+                cellnumber[index].style.color="black";
             } else {
-                cellnumber[index].innerHTML="&nbsp"
+                cellnumber[index].innerHTML="&nbsp";
+                cellnumber[index].style.color="blue";
             }
-            cellnumber[index].style.color="black";
         }
     }
     })
@@ -406,10 +421,11 @@ function newgameMedium(){
             let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
+                cellnumber[index].style.color="black";
             } else {
-                cellnumber[index].innerHTML="&nbsp"
+                cellnumber[index].innerHTML="&nbsp";
+                cellnumber[index].style.color="blue";
             }
-            cellnumber[index].style.color="black";
         }
     }
     })
@@ -425,10 +441,11 @@ function newgameHard(){
             let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
+                cellnumber[index].style.color="black";
             } else {
-                cellnumber[index].innerHTML="&nbsp"
+                cellnumber[index].innerHTML="&nbsp";
+                cellnumber[index].style.color="blue";
             }
-            cellnumber[index].style.color="black";
         }
     }
     })
@@ -444,10 +461,11 @@ function newgameExpert(){
             let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
+                cellnumber[index].style.color="black";
             } else {
-                cellnumber[index].innerHTML="&nbsp"
+                cellnumber[index].innerHTML="&nbsp";
+                cellnumber[index].style.color="blue";
             }
-            cellnumber[index].style.color="black";
         }
     }
     })
@@ -463,10 +481,11 @@ function newgameRandom(){
             let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
+                cellnumber[index].style.color="black";
             } else {
-                cellnumber[index].innerHTML="&nbsp"
+                cellnumber[index].innerHTML="&nbsp";
+                cellnumber[index].style.color="blue";
             }
-            cellnumber[index].style.color="black";
         }
     }
     })
@@ -485,12 +504,18 @@ function newgame(){
 
 
 function showSolved(){
+    clearAll()
     let cellnumber = document.getElementsByClassName("cellnumber");
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
             let index = (i * 9) + j;
             cellnumber[index].innerHTML= solved.charAt(index);
-            cellnumber[index].style.color="black";
+            if(puzzle[index]!=="0"){
+                cellnumber[index].style.color="black";
+            }
+            else{
+                cellnumber[index].style.color="blue";
+            }
         }
     }
 }
