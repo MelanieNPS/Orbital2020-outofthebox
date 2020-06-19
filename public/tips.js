@@ -8,4 +8,5 @@ function openpage(pagename) {
       tablinks[i].style.backgroundColor = "";
     }
     document.getElementById(pagename).style.display = "block";
+    document.getElementById(pagename+"tab").style.backgroundColor = "#33ccff";
   }
