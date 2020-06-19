@@ -96,7 +96,7 @@ function check(cell){
     let R=Math.floor(row/3)*3;
     let C=Math.floor(column/3)*3;
     let correct=true;
-    let index=row*9+column;
+    let index=(+row)*9+(+column);
     cell=cell.children[0];
 
     
@@ -133,7 +133,6 @@ function check(cell){
     }
 
     if(correct){
-        console.log(index);
         if(puzzle[index]!=="0"){
             cell.style.color="black";
         }
