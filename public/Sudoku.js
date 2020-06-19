@@ -72,7 +72,7 @@ function autocheck(){
         Autocheck=false;
         let c=document.getElementsByClassName("cellnumber");
         for(let i=0;i<81;i++){
-            if(puzzle[index]!=="0"){
+            if(puzzle[i]!=="0"){
                 c[i].style.color="black";
             }
             else{
