@@ -319,9 +319,9 @@ function toggleShowTimer(){
 function resetTimer(){
     clearInterval(timeInterval);
     totaltime = 0;
-    document.getElementById("hours").innerHTML = 0;
-    document.getElementById ("minutes").innerHTML = 0;
-    document.getElementById("seconds").innerHTML = 0;
+    document.getElementById("hours").innerHTML = "00";
+    document.getElementById ("minutes").innerHTML = "00";
+    document.getElementById("seconds").innerHTML = "00";
     timeInterval = setInterval(increaseTime, 1000);
 }
 
