@@ -316,7 +316,14 @@ function toggleShowTimer(){
         document.getElementById("toggleShowTimer").innerHTML = "Hide Timer"
     }
 }
-
+function resetTimer(){
+    clearInterval(timeInterval);
+    totaltime = 0;
+    document.getElementById("hours").innerHTML = 0;
+    document.getElementById ("minutes").innerHTML = 0;
+    document.getElementById("seconds").innerHTML = 0;
+    timeInterval = setInterval(increaseTime, 1000);
+}
 
 
 
@@ -408,6 +415,7 @@ function newgameEasy(){
             }
         }
     }
+    resetTimer()
     })
     .catch((e)=>console.log(e))
 }
@@ -428,6 +436,7 @@ function newgameMedium(){
             }
         }
     }
+    resetTimer();
     })
     .catch((e)=>console.log(e))
 }
@@ -448,6 +457,7 @@ function newgameHard(){
             }
         }
     }
+    resetTimer();
     })
     .catch((e)=>console.log(e))
 }
@@ -468,6 +478,7 @@ function newgameExpert(){
             }
         }
     }
+    resetTimer();
     })
     .catch((e)=>console.log(e))
 }
@@ -488,6 +499,7 @@ function newgameRandom(){
             }
         }
     }
+    resetTimer();
     })
     .catch((e)=>console.log(e))
 }
@@ -500,6 +512,7 @@ function newgame(){
         case "Expert": newgameExpert(); break;
         default: newgameRandom(); 
     }
+    resetTimer();
 }
 
 
