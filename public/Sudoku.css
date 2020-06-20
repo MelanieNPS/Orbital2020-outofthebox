@@ -165,3 +165,11 @@ td:focus{
       margin-top: 30px;
       display: block;
   }
+
+
+  .correct {
+      background-color: rgb(138, 233, 138);
+  }
+  .wrong {
+      background-color: rgb(247, 144, 144);
+  }

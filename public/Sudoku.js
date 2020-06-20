@@ -2,6 +2,7 @@ var k;
 var clickmode=false;
 var erase=false;
 var Autocheck=false;
+var Check = false;
 var togglenote=false;
 
 function Erase(){
@@ -65,6 +66,26 @@ function Notes(){
         }
     }
 
+}
+
+function toggleCheck(){
+    let cells = document.getElementsByClassName("cell");
+    if (Check){
+        Check = false;
+        for (var i = 0; i < 81; i++){
+            cells[i].classList.remove("correct");
+            cells[i].classList.remove("wrong");
+        }
+    } else {
+        Check = true;
+        for (var i = 0; i < 81 ; i++){
+            if (cells[i].innerHTML == solved.charAt(i)){
+                cells[i].classList.add("correct");
+            } else {
+                cells[i].classList.add("wrong");
+            }
+        }
+    }
 }
 
 function autocheck(){
