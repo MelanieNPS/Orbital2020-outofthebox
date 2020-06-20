@@ -73,12 +73,14 @@ function toggleCheck(){
     let cellnumber = document.getElementsByClassName("cellnumber");
     if (Check){
         Check = false;
+        document.getElementById("check").style.backgroundColor="#F1CDB0";
         for (var i = 0; i < 81; i++){
             cells[i].classList.remove("correct");
             cells[i].classList.remove("wrong");
         }
     } else {
         Check = true;
+        document.getElementById("check").style.backgroundColor="#C04000";
         for (var i = 0; i < 81 ; i++){
             if (cellnumber[i].innerHTML == solved.charAt(i)){
                 cells[i].classList.add("correct");
