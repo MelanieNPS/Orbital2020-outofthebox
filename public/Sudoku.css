@@ -133,7 +133,7 @@ td:focus{
     padding: 16px;
     font-size: 16px;
     border: none;
-    width: 100px;
+    width: 115px;
   }
   .tab {
     position: relative;
@@ -150,7 +150,7 @@ td:focus{
     padding: 12px 12px;
     font-size: 14px;
     display: block;
-    width: 100px;
+    width: 115px;
     background-color: wheat;
     border: none;
   }
