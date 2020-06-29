@@ -17,6 +17,7 @@
 
       case 40:
         $(this).closest('tr').next().find('td:eq(' + $(this).closest('td').index() + ')').focus();
+        e.preventDefault();
         break;
     }
   });
