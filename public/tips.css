@@ -1,39 +1,43 @@
+body{
+    background-image: linear-gradient(#2C3531, #1a777a, #2C3531);
+}
 #box{
-    height: 320px;
+    height: 600px;
     width: 100%;
-    border: 2px solid black;
     display: grid;
     grid-template-rows: fr fr fr fr fr fr fr fr fr fr;
     grid-template-columns: 23% 77%;
-    background-color: #33ccff;
+    background-color: none;
 }
 
 .tablink{
     height: 100%;
     width: 100%;
-    border: none;
-    background-color: #0086b3;
+    background-color: none;
     grid-column: 1;
+    border: 1px solid #D1E8E2;
 }
 
 .tablink:hover{
-    background-color: #b3ecff;
+    background-color: #22979b;
     border-bottom: 0px;
 }
 
 .tabcontent{
-    background-color: none;
+    background-color: rgb(160, 185, 185);
     height: 100%;
     width: 100%;
     text-align: center;
     grid-column: 2;
     grid-row: 1/11;
     display: none;
+    color: white;
 }
 
 
 button{
     background-color: inherit;
+    color: white;
     border: none;
     outline: none;
     margin: 0;
