@@ -435,7 +435,7 @@ function newgameEasy(){
                 cellnumber[index].style.color="white";
             } else {
                 cellnumber[index].innerHTML="&nbsp";
-                cellnumber[index].style.color="blue";
+                cellnumber[index].style.color="rgb(42,233,255)";
             }
         }
     }
@@ -456,7 +456,7 @@ function newgameMedium(){
                 cellnumber[index].style.color="white";
             } else {
                 cellnumber[index].innerHTML="&nbsp";
-                cellnumber[index].style.color="blue";
+                cellnumber[index].style.color="rgb(42,233,255)";
             }
         }
     }
@@ -477,7 +477,7 @@ function newgameHard(){
                 cellnumber[index].style.color="white";
             } else {
                 cellnumber[index].innerHTML="&nbsp";
-                cellnumber[index].style.color="blue";
+                cellnumber[index].style.color="rgb(42,233,255)";
             }
         }
     }
@@ -498,7 +498,7 @@ function newgameExpert(){
                 cellnumber[index].style.color="white";
             } else {
                 cellnumber[index].innerHTML="&nbsp";
-                cellnumber[index].style.color="blue";
+                cellnumber[index].style.color="rgb(42,233,255)";
             }
         }
     }
@@ -519,7 +519,7 @@ function newgameRandom(){
                 cellnumber[index].style.color="white";
             } else {
                 cellnumber[index].innerHTML="&nbsp";
-                cellnumber[index].style.color="blue";
+                cellnumber[index].style.color="rgb(42,233,255)";
             }
         }
     }
