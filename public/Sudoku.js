@@ -426,6 +426,7 @@ function newgameEasy(){
     document.getElementById("difficulty").innerHTML = "Easy";
     readStringEasy()
     .then(()=>{
+    clearAll();
     let cellnumber = document.getElementsByClassName("cellnumber");
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
@@ -447,6 +448,7 @@ function newgameMedium(){
     document.getElementById("difficulty").innerHTML = "Medium";
     readStringMedium()
     .then(()=>{
+    clearAll();
     let cellnumber = document.getElementsByClassName("cellnumber");
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
@@ -468,6 +470,7 @@ function newgameHard(){
     document.getElementById("difficulty").innerHTML = "Hard";
     readStringHard()
     .then(()=>{
+    clearAll()    
     let cellnumber = document.getElementsByClassName("cellnumber");
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
@@ -489,6 +492,7 @@ function newgameExpert(){
     document.getElementById("difficulty").innerHTML = "Expert";
     readStringExpert()
     .then(()=>{
+    clearAll();    
     let cellnumber = document.getElementsByClassName("cellnumber");
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
@@ -510,6 +514,7 @@ function newgameRandom(){
     document.getElementById("difficulty").innerHTML = "Random";
     readStringRandom()
     .then(()=>{
+    clearAll();    
     let cellnumber = document.getElementsByClassName("cellnumber");
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
