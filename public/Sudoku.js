@@ -432,7 +432,7 @@ function newgameEasy(){
             let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
-                cellnumber[index].style.color="black";
+                cellnumber[index].style.color="white";
             } else {
                 cellnumber[index].innerHTML="&nbsp";
                 cellnumber[index].style.color="blue";
@@ -453,7 +453,7 @@ function newgameMedium(){
             let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
-                cellnumber[index].style.color="black";
+                cellnumber[index].style.color="white";
             } else {
                 cellnumber[index].innerHTML="&nbsp";
                 cellnumber[index].style.color="blue";
@@ -474,7 +474,7 @@ function newgameHard(){
             let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
-                cellnumber[index].style.color="black";
+                cellnumber[index].style.color="white";
             } else {
                 cellnumber[index].innerHTML="&nbsp";
                 cellnumber[index].style.color="blue";
@@ -495,7 +495,7 @@ function newgameExpert(){
             let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
-                cellnumber[index].style.color="black";
+                cellnumber[index].style.color="white";
             } else {
                 cellnumber[index].innerHTML="&nbsp";
                 cellnumber[index].style.color="blue";
@@ -516,7 +516,7 @@ function newgameRandom(){
             let index = (i * 9) + j;
             if (puzzle.charAt(index) != 0){
                 cellnumber[index].innerHTML= puzzle.charAt(index);
-                cellnumber[index].style.color="black";
+                cellnumber[index].style.color="white";
             } else {
                 cellnumber[index].innerHTML="&nbsp";
                 cellnumber[index].style.color="blue";
