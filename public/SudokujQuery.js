@@ -9,6 +9,7 @@
 
       case 38:
         $(this).closest('tr').prev().find('td:eq(' + $(this).closest('td').index() + ')').focus();
+        e.preventDefault();
         break;
        
       case 39:

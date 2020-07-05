@@ -8,17 +8,17 @@ var togglenote=false;
 function Erase(){
     if(erase){
         erase=false;
-        document.getElementById("erase").style.backgroundColor="#F1CDB0";
+        document.getElementById("erase").style.backgroundColor="#1a777a";
     }
     else{
         erase=true;
         if(clickmode || togglenote){
             clickmode=false;
             togglenote=false;
-            document.getElementById("click").style.backgroundColor="#F1CDB0";
-            document.getElementById("Notes").style.backgroundColor="#F1CDB0";
+            document.getElementById("click").style.backgroundColor="#1a777a";
+            document.getElementById("Notes").style.backgroundColor="#1a777a";
         }
-        document.getElementById("erase").style.backgroundColor="#C04000";
+        document.getElementById("erase").style.backgroundColor="rgb(61,4,39)";
     }
 }
 
@@ -40,14 +40,14 @@ function clearAll(){
 function toggleclick(){
     if(clickmode){
         clickmode=false;
-        document.getElementById("click").style.backgroundColor="#F1CDB0";
+        document.getElementById("click").style.backgroundColor="#1a777a";
     }
     else{
         clickmode=true;
-        document.getElementById("click").style.backgroundColor="#C04000";
+        document.getElementById("click").style.backgroundColor="rgb(61,4,39)";
         if(erase){
             erase=false;
-            document.getElementById("erase").style.backgroundColor="#F1CDB0";
+            document.getElementById("erase").style.backgroundColor="#1a777a";
         }
     }
 }
@@ -55,14 +55,14 @@ function toggleclick(){
 function Notes(){
     if(togglenote){
         togglenote=false;
-        document.getElementById("Notes").style.backgroundColor="#F1CDB0";
+        document.getElementById("Notes").style.backgroundColor="#1a777a";
     }
     else{
         togglenote=true;
-        document.getElementById("Notes").style.backgroundColor="#C04000";
+        document.getElementById("Notes").style.backgroundColor="rgb(61,4,39)";
         if(erase){
             erase=false;
-            document.getElementById("erase").style.backgroundColor="#F1CDB0";
+            document.getElementById("erase").style.backgroundColor="#1a777a";
         }
     }
 
@@ -73,14 +73,14 @@ function toggleCheck(){
     let cellnumber = document.getElementsByClassName("cellnumber");
     if (Check){
         Check = false;
-        document.getElementById("check").style.backgroundColor="#F1CDB0";
+        document.getElementById("check").style.backgroundColor="#1a777a";
         for (var i = 0; i < 81; i++){
             cells[i].classList.remove("correct");
             cells[i].classList.remove("wrong");
         }
     } else {
         Check = true;
-        document.getElementById("check").style.backgroundColor="#C04000";
+        document.getElementById("check").style.backgroundColor="rgb(61,4,39)";
         for (var i = 0; i < 81 ; i++){
             if (cellnumber[i].innerHTML == solved.charAt(i)){
                 cells[i].classList.add("correct");
@@ -97,18 +97,18 @@ function autocheck(){
         let c=document.getElementsByClassName("cellnumber");
         for(let i=0;i<81;i++){
             if(puzzle[i]!=="0"){
-                c[i].style.color="black";
+                c[i].style.color="white";
             }
             else{
-                c[i].style.color="blue";
+                c[i].style.color="rgb(42,233,255)";
             }
         }
-        document.getElementById("autocheck").style.backgroundColor="#F1CDB0";
+        document.getElementById("autocheck").style.backgroundColor="#1a777a";
     }
     else{
         Autocheck=true;
         checkall();
-        document.getElementById("autocheck").style.backgroundColor="#C04000";
+        document.getElementById("autocheck").style.backgroundColor="rgb(61,4,39)";
     }
 }
 
@@ -158,10 +158,10 @@ function check(cell){
 
     if(correct){
         if(puzzle[index]!=="0"){
-            cell.style.color="black";
+            cell.style.color="white";
         }
         else{
-            cell.style.color="blue";
+            cell.style.color="rgb(42,223,255)";
         }
     }
 }
@@ -548,10 +548,10 @@ function showSolved(){
             let index = (i * 9) + j;
             cellnumber[index].innerHTML= solved.charAt(index);
             if(puzzle[index]!=="0"){
-                cellnumber[index].style.color="black";
+                cellnumber[index].style.color="white";
             }
             else{
-                cellnumber[index].style.color="blue";
+                cellnumber[index].style.color="rgb(42,233,255)";
             }
         }
     }

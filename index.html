@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="Sudoku.css">
+    <link rel="stylesheet" href="public/Sudoku.css">
 </head>
 
-<body style="background-color: rgb(255, 255, 236); text-align:centre;">
+<body>
+    <div class="other_pages">
+        <a href="tips.html" class="tipsButton"> Tips </a>
+
+    </div>
+
+    <div id="spacing"></div>
 
     <div class="tabBar">
         <div class="tab">
@@ -1197,7 +1203,7 @@
     </table>
 
 
-    <div id="spacing"></div>
+    <div id="spacing-lower"></div>
 
 
     <div id="control">
@@ -1229,6 +1235,9 @@
             9
         </div>
     </div>
+    
+    <div id="spacing-lower"></div>
+    
     <div id="control2">
         <div>
             <button type="button" id="check" onclick="toggleCheck()">Check</button>
@@ -1244,10 +1253,10 @@
             <button type="button" onclick="showSolved()">I give up!</button>
         </div>
     </div>
-    <div id="test"></div>
 
-    <script src="Sudoku.js"></script>
-    <script src="SudokujQuery.js"></script>
+
+    <script src="public/Sudoku.js"></script>
+    <script src="public/SudokujQuery.js"></script>
 </body>
 
 </html>
