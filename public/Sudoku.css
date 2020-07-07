@@ -198,3 +198,18 @@ td:focus{
       border-radius: 6px;
       padding: 5px;
   }
+
+  .one{
+    display: inline-block;
+      padding: 10px 25px;
+      text-align: center;
+      color: white;
+      background-color: #166466;
+      border-radius: 6px;
+      outline: none;
+}
+.one:active {
+    background-color: rgb(61,4,39);
+    box-shadow: 0 3px #666;
+    transform: translateY(2px);
+  }

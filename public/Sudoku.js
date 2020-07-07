@@ -350,10 +350,76 @@ function resetTimer(){
 }
 
 
+//Tools
+function checkstring(pos,num,grid){
+    //check row and column logic
+    let colStart=pos%9;
+    let rowStart=(Math.floor(pos/9))*9;
+    for(let i=0;i<9;i++){
+        let y=grid[rowStart+i];
+        let x=grid[colStart+9*i]
+        //row logic
+        if(y==num){
+            return false;
+        }
+        //column logic
+        if(x==num){
+            return false;
+        }
+    }
+    for(let i=0; i<3; i++){
+        for(let j=0; j<3; j++){
+            let X=Math.floor(colStart/3)*3;
+            let Y=Math.floor(Math.floor(pos/9)/3)*3;
+            if(grid[X+Y*9+i*9+j]==num){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+function fillnotes(){
+    //capture current grid state into a string
+    let grid="";
+    let c=document.getElementsByClassName("cellnumber");
+    let d=document.getElementsByClassName("note");
+    let e=document.getElementsByClassName("notecell");
+    for(let i=0; i<81; i++){
+        let content=c[i].innerHTML;
+        if(content === "&nbsp;"){
+            grid+="0";
+        }
+        else{
+            grid+=content;
+        }
+    }
+
+    //clear all notes
+    for (let i = 0; i<729; i++){
+        if(puzzle[Math.floor(i/9)]==="0"){
+            e[i].innerHTML = "";
+        }
+    }
+
+    for(let i=0; i<81; i++){
+        if(grid[i] === "0"){
+            for( let j=0; j<9; j++){
+                if(checkstring(i,j+1,grid)){
+                    d[i].children[j].innerHTML=j+1;
+                }
+            }
+        }
+        else{
+            console.log(grid);
+        }
+    }
+}
+
 
 //Database functions
-var puzzle = "000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-var solved = "000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+//one puzzle here is for testing purposes
+var puzzle = "000000000007005030500310890012700600900050310000020000006000700000060020003807406";
+var solved = "231978564897645231564312897312789645978456312645123978456231789789564123123897456";
 
 async function readStringEasy(){
     try {
