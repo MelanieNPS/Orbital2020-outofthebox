@@ -31,9 +31,7 @@ function clearAll(){
         }
     }
     for (let i = 0; i<729; i++){
-        if(puzzle[Math.floor(i/9)]==="0"){
-            d[i].innerHTML = "";
-        }
+        d[i].innerHTML = "";
     }
 }
 
@@ -396,9 +394,7 @@ function fillnotes(){
 
     //clear all notes
     for (let i = 0; i<729; i++){
-        if(puzzle[Math.floor(i/9)]==="0"){
-            e[i].innerHTML = "";
-        }
+        e[i].innerHTML = "";
     }
 
     for(let i=0; i<81; i++){
