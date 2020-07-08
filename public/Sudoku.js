@@ -27,7 +27,7 @@ function clearAll(){
     let d = document.getElementsByClassName("notecell");
     for (let i = 0; i<81; i++){
         if(puzzle[i]==="0"){
-            c[i].innerHTML = "";
+            c[i].innerHTML = "&nbsp";
         }
     }
     for (let i = 0; i<729; i++){
@@ -126,7 +126,7 @@ function check(cell){
         //checks for duplicate numbers in a row
         if(column!==`${i}`){
             let c=document.getElementById(`cell${row}${i}`).children[0];
-            if(c.innerHTML===cell.innerHTML && c.innerHTML!==""){
+            if(c.innerHTML===cell.innerHTML && c.innerHTML!=="&nbsp"){
                 cell.style.color="red";
                 correct=false;
             }
@@ -134,7 +134,7 @@ function check(cell){
         //checks for duplicate numbers in a column
         if(row!==`${i}`){
             let c=document.getElementById(`cell${i}${column}`).children[0];
-            if(c.innerHTML===cell.innerHTML && c.innerHTML!==""){
+            if(c.innerHTML===cell.innerHTML && c.innerHTML!=="&nbsp"){
                 cell.style.color="red";
                 correct=false;
             }
@@ -146,7 +146,7 @@ function check(cell){
         for(let j=C;j<C+3;j++){
             if(minibox!==`${i}${j}`){
                 let c=document.getElementById(`cell${i}${j}`).children[0];
-                if(c.innerHTML===cell.innerHTML && c.innerHTML!==""){
+                if(c.innerHTML===cell.innerHTML && c.innerHTML!=="&nbsp"){
                     cell.style.color="red";
                     correct=false;
                 }
@@ -195,7 +195,7 @@ function group(){
                             checkall();
                         }
                     } else {
-                        cellnumber[index].innerHTML = "";
+                        cellnumber[index].innerHTML = "&nbsp";
                         if(Autocheck){
                             checkall();
                         }
