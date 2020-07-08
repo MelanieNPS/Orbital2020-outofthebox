@@ -8,5 +8,5 @@ function openpage(pagename) {
       tablinks[i].style.backgroundColor = "";
     }
     document.getElementById(pagename).style.display = "block";
-    document.getElementById(pagename+"tab").style.backgroundColor = "#92b6ac";
+    document.getElementById(pagename+"tab").style.backgroundColor = "#89ada3";
   }
