@@ -33,6 +33,7 @@
 				<p>	Notice that the position of the number “2” in the bottom left sub-grid is not known 
 					but it gives enough information to determine the position of the number “2” in the the highlighted sub-grid.</p>
 			</div>
+
 		    <div id="two" class="tabcontent">
 				<h2> Hidden Singles </h2>
 				<p> A hidden single is when a note is the only one of its kind in anentire row, column or block</p>
@@ -42,17 +43,37 @@
 				<p> In this case, only one cell has the possibility of a 7. Therefore, that cell must contain 7.</p>
 				<p> The same can be done across a row or down a column.</p>
 			</div>
+
 		    <div id="three" class="tabcontent">
 				<h2> Disjoint Subset </h2>
 				<p> A disjoint subset works by looking for number possibilities that can be removed from other cells </p>
 				<div id="paragraphSpacing30"></div>
 				<p> For example, in this row, the possible numbers in each unfilled box can be written as {1247}, {18}, {247}, {18}, {14} </p>
 				<img src="Images/DisjointSubset1.PNG" width="500px">
-				<p> * There are two boxes with the possibilities {18} (1 and 8)</p>
-				<p> * This means that either one of the boxes contain 1 and the other 8</p>
-				<p> * No other box in the row can contain 1 or 8</p>
+				<p> There are two boxes with the possibilities {18} (1 and 8)</p>
+				<p> This means that either one of the boxes contain 1 and the other 8</p>
+				<p> No other box in the row can contain 1 or 8</p>
 				<img src="Images/DisjointSubset2.PNG" width="500px">
+				<div id="paragraphSpacing30"></div>
+				<div id="paragraphSpacing15"></div>
+				<p> Here is another example with 3 numbers instead of 2</p>
+				<img src="Images/DisjointSubset3.PNG" width="500px;">
+				<p><button id="DS3button" class="solutionButton" onclick="showDS3Solution()"> Show Solution </button></p>
+				<div id="DS3solution">
+					<p> {1589}, {569}, {569}, {25}, {1589}, {569}, {27} </p>
+					<p> Three boxes only contain the numbers 5, 6 and 9 </p>
+					<p> These numbers can be eliminated from the rest of the boxes </p>
+					<img src="Images/DisjointSubset4.PNG" width="500px">
+				</div>
+				<div id="paragraphSpacing30"></div>
+				<div id="paragraphSpacing15"></div>
+				<p> Here is another triple, but a little trickier </p>
+				<img src="Images/DisjointSubset5.PNG" width="500px">
+				<p> There are three cells which only contain three possible values (1, 3 and 8)</p>
+				<p> The numbers 1, 3 and 8 must be contained between these three cells</p>
+				<p> 1, 3 and 8 can be removed as candidates from other cells</p>
 			</div>
+
 		    <div id="four" class="tabcontent"><p>tip four</p></div>
 		    <div id="five" class="tabcontent"><p>tip five</p></div>
 		    <div id="six" class="tabcontent"><p>tip six</p></div>

@@ -40,7 +40,7 @@ body{
 }
 
 
-button{
+.tablink button{
     background-color: inherit;
     color: white;
     border: none;
@@ -51,10 +51,15 @@ button{
     height: 100%;
 }
 
+
 #paragraphSpacing15{
     height: 15px;
 }
 #paragraphSpacing30{
     height: 30px;
     border-bottom: 2px solid white;
+}
+
+#DS3solution{
+    display: none;
 }

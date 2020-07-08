@@ -10,3 +10,9 @@ function openpage(pagename) {
     document.getElementById(pagename).style.display = "block";
     document.getElementById(pagename+"tab").style.backgroundColor = "#89ada3";
   }
+
+
+function showDS3Solution(){
+  document.getElementById("DS3solution").style.display = "block";
+  document.getElementById("DS3button").style.display = "none";
+}  
