@@ -16,3 +16,9 @@ function showDS3Solution(){
   document.getElementById("DS3solution").style.display = "block";
   document.getElementById("DS3button").style.display = "none";
 }  
+
+function CL2show(){
+  document.getElementById("CL1").src = "Images/Candidate lines2.PNG";
+  document.getElementById("CL2").style.display = "block";
+  document.getElementById("CL2button").style.display="none";
+}

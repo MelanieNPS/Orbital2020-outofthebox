@@ -9,7 +9,7 @@
 		    <div id="onetab" class="tablink"><button onclick="openpage('one')">Cross-Hatch</button></div>
 		    <div id="twotab" class="tablink"><button onclick="openpage('two')">Hidden Singles</button></div>
 		    <div id="threetab" class="tablink"><button onclick="openpage('three')">Disjoint Subset</button></div>
-		    <div id="fourtab" class="tablink"><button onclick="openpage('four')">Fourth</button></div>
+		    <div id="fourtab" class="tablink"><button onclick="openpage('four')">Candidate Lines</button></div>
 		    <div id="fivetab" class="tablink"><button onclick="openpage('five')">Fifth</button></div>
 		    <div id="sixtab" class="tablink"><button onclick="openpage('six')">Sixth</button></div>
 		    <div id="seventab" class="tablink"><button onclick="openpage('seven')">Seventh</button></div>
@@ -35,7 +35,7 @@
 			</div>
 
 		    <div id="two" class="tabcontent">
-				<h2> Hidden Singles </h2>
+				<h2> Hidden Singles  </h2>
 				<p> A hidden single is when a note is the only one of its kind in an entire row, column or block</p>
 				<div id="paragraphSpacing30"></div>
 				<img src="Images/HiddenSingle.PNG" width="250px" style="padding-top: 20px;">
@@ -74,7 +74,22 @@
 				<p> 1, 3 and 8 can be removed as candidates from other cells</p>
 			</div>
 
-		    <div id="four" class="tabcontent"><p>tip four</p></div>
+		    <div id="four" class="tabcontent">
+				<h2> Candidate Lines </h2> 
+				<div id="paragraphSpacing30"></div>
+				<div id="paragraphSpacing15"></div>
+				<div style="margin-left: 10%;">
+					<img id="CL1" src="Images/Candidate lines1.PNG" width="150px" ALIGN="left">
+					<p> In the bottom box, there are only two places which the number "4" can be </p>
+					<p> Since the number "4" must lie in the yellow boxes, "4" cannot be anywhere else along the column</p>
+					<button id="CL2button" onclick="CL2show()"> Click Me </button>
+					<div id="CL2" style="display: none;">
+						<p> Hence we can remove the candidate "4" from the other boxes along the blue column</p>
+						<p> This leaves us with an answer for one of the boxes</p>
+					</div>
+				</div>
+
+			</div>
 		    <div id="five" class="tabcontent"><p>tip five</p></div>
 		    <div id="six" class="tabcontent"><p>tip six</p></div>
 		    <div id="seven" class="tabcontent"><p>tip seven</p></div>
