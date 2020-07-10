@@ -10,7 +10,7 @@
 		    <div id="twotab" class="tablink"><button onclick="openpage('two')">Hidden Singles</button></div>
 		    <div id="threetab" class="tablink"><button onclick="openpage('three')">Disjoint Subset</button></div>
 		    <div id="fourtab" class="tablink"><button onclick="openpage('four')">Candidate Lines</button></div>
-		    <div id="fivetab" class="tablink"><button onclick="openpage('five')">Fifth</button></div>
+		    <div id="fivetab" class="tablink"><button onclick="openpage('five')">X-Wings</button></div>
 		    <div id="sixtab" class="tablink"><button onclick="openpage('six')">Sixth</button></div>
 		    <div id="seventab" class="tablink"><button onclick="openpage('seven')">Seventh</button></div>
 		    <div id="eighttab" class="tablink"><button onclick="openpage('eight')">Eighth</button></div>
@@ -76,6 +76,7 @@
 
 		    <div id="four" class="tabcontent">
 				<h2> Candidate Lines </h2> 
+				<p> Within a box, if all the places where you can place a number lie on a single line, we can remove that number as a possible candidate from the other boxes on the line</p>
 				<div id="paragraphSpacing30"></div>
 				<div id="paragraphSpacing15"></div>
 				<div style="margin-left: 10%;">
@@ -90,7 +91,44 @@
 				</div>
 
 			</div>
-		    <div id="five" class="tabcontent"><p>tip five</p></div>
+		    <div id="five" class="tabcontent">
+				<h2> X-Wings </h2>
+				<div id="paragraphSpacing30"></div>
+				<div id="paragraphSpacing15"></div>
+				<div id="XW1" style="display: block;">
+					<img src="Images/X-Wings1.PNG" width="450px">
+					<p> X-Wings occurs when there are two lines, with each having the same two positions for a common number</p>
+					<p> In this example, the common number is 9</p>
+					<button id="XW1Next" onclick="showXW2()"> Next </button>
+				</div>
+				<div id="XW2" style="display: none;">
+					<img src="Images/X-Wings2.PNG" width="450px">
+					<p> Let's imagine that the number in the yellow box is 9 </p>
+					<p> This would result in the number in the blue box to be 9 as well</p>
+					<p> * Notice that both highlighted columns contain 9 </p>
+					<button onclick="showXW1()"> Previous </button>
+					<button onclick="showXW3()"> Next </button>
+				</div>
+				<div id="XW3" style="display: none;">
+					<img src="Images/X-Wings3.PNG" width="450px">
+					<p> Now, let's try the alternative scenario where the yellow box is 4 </p>
+					<button onclick="showXW2()"> Previous </button>
+					<button onclick="showXW4()"> Next </button>
+				</div>
+				<div id="XW4" style="display: none;">
+					<img src="Images/X-Wings4.PNG" width="450px">
+					<p> This results in the numbers in the blue boxes being 9 </p>
+					<p> * Notice that in this case, both highlighted columns also contain 9</p>
+					<button onclick="showXW3()"> Previous </button> 
+					<button onclick="showXW5()"> Next </button>
+				</div>
+				<div id="XW5" style="display: none;">
+					<img src="Images/X-Wings5.PNG" width=" 450px">
+					<p> Since in both scenarios, the number 9 for both columns will lie within these 4 boxes</p>
+					<p> Thus, the number 9 can be removed as a candidate for any other box along these 2 columns </p>
+					<button onclick="showXW4()"> Previous </button>
+				</div>
+			</div>
 		    <div id="six" class="tabcontent"><p>tip six</p></div>
 		    <div id="seven" class="tabcontent"><p>tip seven</p></div>
 		    <div id="eight" class="tabcontent"><p>tip eight</p></div>
