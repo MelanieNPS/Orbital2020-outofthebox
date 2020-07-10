@@ -79,12 +79,29 @@ function toggleCheck(){
     } else {
         Check = true;
         document.getElementById("check").style.backgroundColor="rgb(61,4,39)";
+        let counter=0;
         for (var i = 0; i < 81 ; i++){
             if (cellnumber[i].innerHTML == solved.charAt(i)){
                 cells[i].classList.add("correct");
+                counter++;
             } else {
                 cells[i].classList.add("wrong");
             }
+        }
+        if(counter === 81){
+            let hour=Math.floor(totaltime/3600);
+            let minute=Math.floor(totaltime%3600/60);
+            let second=totaltime%60;
+            if(minute<10){
+                minute="0"+minute;
+            }
+            if(second<10){
+                second="0"+second;
+            }
+            alert(`YAY! \ntiming: ${hour}:${minute}:${second}`)
+        }
+        if(!timerPaused){
+            togglePause()
         }
     }
 }
@@ -405,12 +422,42 @@ function fillnotes(){
                 }
             }
         }
+    }
+}
+
+function onenote(){
+    //capture current grid state into a string
+    let grid="";
+    let c=document.getElementsByClassName("cellnumber");
+    let d=document.getElementsByClassName("note");
+    let e=document.getElementsByClassName("notecell");
+    for(let i=0; i<81; i++){
+        let content=c[i].innerHTML;
+        if(content === "&nbsp;"){
+            grid+="0";
+        }
         else{
-            console.log(grid);
+            grid+=content;
+        }
+    }
+
+    //clear all notes
+    for (let i = 0; i<729; i++){
+        e[i].innerHTML = "";
+    }
+
+    for(let i=0; i<81; i++){
+        if(grid[i] === "0" && k!==undefined){
+            if(checkstring(i,k,grid)){
+                d[i].children[k-1].innerHTML=k;
+            }
         }
     }
 }
 
+function help(){
+    alert("User Guide")
+}
 
 //Database functions
 //one puzzle here is for testing purposes

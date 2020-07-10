@@ -213,3 +213,11 @@ td:focus{
     box-shadow: 0 3px #666;
     transform: translateY(2px);
   }
+.help{
+    border-radius: 50%;
+    border-color: white;
+    background-color: rgb(61,4,39);
+    box-shadow: 0 3px #666;
+    transform: translateY(2px);
+    color: white;
+}
