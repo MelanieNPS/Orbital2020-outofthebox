@@ -21,26 +21,27 @@ function CL2show(){
   document.getElementById("CL2").style.display = "block";
   document.getElementById("CL2button").style.display="none";
 }
-function showXW1(){
-  document.getElementById("XW2").style.display = "none";
-  document.getElementById("XW1").style.display = "block";
+function showXW(x){
+  if (x == 5){
+    document.getElementById("XW" + (x - 1)).style.display = "none";
+  } else if (x == 1) {
+    document.getElementById("XW" + (x + 1)).style.display = "none";
+  } else {
+    document.getElementById("XW" + (x - 1)).style.display = "none";
+    document.getElementById("XW" + (x + 1)).style.display = "none"; 
+  }
+  document.getElementById ("XW" + x).style.display = "block";
 }
-function showXW2(){
-  document.getElementById("XW1").style.display = "none";
-  document.getElementById("XW3").style.display = "none";
-  document.getElementById("XW2").style.display = "block";
-}
-function showXW3(){
-  document.getElementById("XW2").style.display = "none";
-  document.getElementById("XW4").style.display = "none";
-  document.getElementById("XW3").style.display = "block";
-}
-function showXW4(){
-  document.getElementById("XW3").style.display = "none";
-  document.getElementById("XW5").style.display = "none";
-  document.getElementById("XW4").style.display = "block";
-}
-function showXW5(){
-  document.getElementById("XW4").style.display = "none";
-  document.getElementById("XW5").style.display = "block";
+
+
+function showFC(x){
+  if(x == 4){
+    document.getElementById("FC" + (x - 1)).style.display = "none";
+  } else if (x == 1){
+    document.getElementById("FC" + (x + 1)).style.display = "none";
+  } else {
+    document.getElementById("FC" + (x - 1)).style.display = "none";
+    document.getElementById("FC" + (x + 1)).style.display = "none";
+  }
+  document.getElementById("FC"+ x).style.display = "block";
 }
