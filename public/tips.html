@@ -9,10 +9,10 @@
 		    <div id="onetab" class="tablink"><button onclick="openpage('one')">Cross-Hatch</button></div>
 		    <div id="twotab" class="tablink"><button onclick="openpage('two')">Hidden Singles</button></div>
 		    <div id="threetab" class="tablink"><button onclick="openpage('three')">Disjoint Subset</button></div>
-		    <div id="fourtab" class="tablink"><button onclick="openpage('four')">Candidate Lines</button></div>
-		    <div id="fivetab" class="tablink"><button onclick="openpage('five')">X-Wings</button></div>
-		    <div id="sixtab" class="tablink"><button onclick="openpage('six')">Forcing Chains</button></div>
-		    <div id="seventab" class="tablink"><button onclick="openpage('seven')">Seventh</button></div>
+		    <div id="fourtab" class="tablink"><button onclick="openpage('four')">Hidden Pairs/ Triples</button></div>
+		    <div id="fivetab" class="tablink"><button onclick="openpage('five')">Candidate Lines</button></div>
+		    <div id="sixtab" class="tablink"><button onclick="openpage('six')">X-Wings</button></div>
+		    <div id="seventab" class="tablink"><button onclick="openpage('seven')">Forcing Chains</button></div>
 		    <div id="eighttab" class="tablink"><button onclick="openpage('eight')">Eighth</button></div>
 		    <div id="ninetab" class="tablink"><button onclick="openpage('nine')">Ninth</button></div>
 		    <div id="tentab" class="tablink"><button onclick="openpage('ten')">Tenth</button></div>
@@ -73,8 +73,22 @@
 				<p> The numbers 1, 3 and 8 must be contained between these three cells</p>
 				<p> 1, 3 and 8 can be removed as candidates from other cells</p>
 			</div>
-
-		    <div id="four" class="tabcontent">
+			<div id="four" class="tabcontent">
+				<h2> Hidden Pairs/ Triples</h2>
+				<p> Hidden pairs/ triples are similar to disjoint subsets, but more difficult to spot</p>
+				<div id="paragraphSpacing30"></div>
+				<div id="paragraphSpacing15"></div>
+				<img src="Images/HiddenPairs1.PNG" width="500px">
+				<p> Here is an example, where the candidates of the empty boxes can be written as {46} {86} {79} {48} {789}</p>
+				<button id="HP1button" onclick="showHP(1)"> Show </button>
+				<div id="HP1" style="display: none;">
+					<p> Only the two boxes with candidates {79} and {789} can contain the numbers "7" and "9"</p>
+					<p> This pair is 'hidden' by the number 8</p>
+					<img src="Images/HiddenPairs2.PNG" width="500px">
+				</div>
+				<div id="paragraphSpacing30"></div>
+			</div>
+		    <div id="five" class="tabcontent">
 				<h2> Candidate Lines </h2> 
 				<p> Within a box, if all the places where you can place a number lie on a single line, we can remove that number as a possible candidate from the other boxes on the line</p>
 				<div id="paragraphSpacing30"></div>
@@ -91,7 +105,7 @@
 				</div>
 
 			</div>
-		    <div id="five" class="tabcontent">
+		    <div id="six" class="tabcontent">
 				<h2> X-Wings </h2>
 				<div id="paragraphSpacing30"></div>
 				<div id="paragraphSpacing15"></div>
@@ -129,7 +143,7 @@
 					<button onclick="showXW(4)"> Previous </button>
 				</div>
 			</div>
-		    <div id="six" class="tabcontent">
+		    <div id="seven" class="tabcontent">
 				<h2> Forcing Chains </h2>
 				<p> Deducing the number in a cell by looking at the consequences of the number on other cells</p>
 				<div id="paragraphSpacing30"></div>
@@ -159,7 +173,6 @@
 					<button onclick="showFC(3)"> Previous </button>
 				</div>
 			</div>
-		    <div id="seven" class="tabcontent"><p>tip seven</p></div>
 		    <div id="eight" class="tabcontent"><p>tip eight</p></div>
 			<div id="nine" class="tabcontent"><p>tip nine</p></div>
 			<div id="ten" class="tabcontent"><p>tip ten</p></div>

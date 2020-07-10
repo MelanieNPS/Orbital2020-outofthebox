@@ -21,6 +21,11 @@ function CL2show(){
   document.getElementById("CL2").style.display = "block";
   document.getElementById("CL2button").style.display="none";
 }
+
+function showHP(x){
+  document.getElementById("HP" + x + "button").style.display = "none";
+  document.getElementById("HP" + x).style.display = "block";
+}
 function showXW(x){
   if (x == 5){
     document.getElementById("XW" + (x - 1)).style.display = "none";
@@ -32,8 +37,6 @@ function showXW(x){
   }
   document.getElementById ("XW" + x).style.display = "block";
 }
-
-
 function showFC(x){
   if(x == 4){
     document.getElementById("FC" + (x - 1)).style.display = "none";
