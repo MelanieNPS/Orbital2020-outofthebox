@@ -278,7 +278,7 @@ function notes(){
             cell.addEventListener("click", changeNote);
             cell.addEventListener("keypress", changeKeyboard)
             function changeNote() {
-                if(togglenote && clickmode){
+                if(togglenote && clickmode && puzzle[index]==="0"){
                     cellnumber[index].innerHTML="&nbsp";
                     if(notecell[k-1].innerHTML == k){
                         notecell[k-1].innerHTML = "";
