@@ -1,0 +1,96 @@
+body{
+    background-image: linear-gradient(#2C3531, #1a777a, #2C3531);
+}
+
+#topBar{
+    height: 85px;
+    margin: auto;
+    width: 500px;
+}
+#topBar button{
+    background-color: #1a777a;
+    padding: 15px;
+    font-size: 15px;
+    border: none;
+    width: 115px;
+    margin-right: 6px;
+    margin-top: 15px;
+    color: rgb(255, 255, 255);
+  }
+
+
+
+#box{
+    display: grid;
+    border: 4px solid white;
+    margin:2px;
+    width:492px;
+    height:485px;
+    grid-template:fr fr fr/fr fr fr;
+    margin: auto;
+    border-collapse: collapse;
+}
+.cell{
+    border: 1px solid white;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 33px;
+    background-color: none;
+}
+.cellnumber{
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    color: white;
+}
+td:focus{
+    box-shadow: 2px lightblue;
+    background-color: rgb(61, 4, 39);
+}
+.cell:nth-of-type(3n):not(:last-of-type){
+    border-right: 5px solid white;
+}
+.row .cell{
+    border-bottom: 5px solid white;
+}
+
+
+#spacing{
+    height: 10px;
+}
+  
+
+
+#control{
+    display:grid;
+    border: 1px solid rgb(255, 255, 255);
+    width: 494px;
+    height: 43px;
+    grid-template: fr fr fr fr fr fr fr fr fr/fr;
+    margin: auto;
+    border-collapse: collapse;
+}
+#control div{
+    border: 1px solid white;
+}
+#control div:nth-of-type(9n){
+    grid-column: 9;
+}
+.numbers{
+    width: 53px;
+    height: 43px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 33px;
+    color: rgb(255, 255, 255);
+    cursor: grabbing;
+}
+.active, .numbers:hover {
+    background-color: rgb(61, 4, 39);
+  }
+
+
+
+
