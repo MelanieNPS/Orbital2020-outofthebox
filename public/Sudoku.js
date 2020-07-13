@@ -206,6 +206,7 @@ function group(){
                     var noteButton = /^[n]+$/;
                     var clickmode = /^[c]+$/;
                     var auto = /^[a]+$/;
+                    var fillNote = /^[f]+$/;
                     if (numbers.test(h)){       //Only allow control from 1 to 9
                         for (let k =0; k< notecell.length; k++){
                             notecell[k].innerHTML="";
@@ -220,6 +221,8 @@ function group(){
                         toggleclick();
                     } else if (auto.test(h)){
                         autocheck();
+                    } else if (fillNote.test(h)){
+                        fillnotes();
                     } else {
                         cellnumber[index].innerHTML = "&nbsp";
                         if(Autocheck){
@@ -303,6 +306,7 @@ function notes(){
                     var noteButton = /^[m]+$/;
                     var clickmode = /^[c]+$/;
                     var auto = /^[a]+$/;
+                    var fillNote = /^[f]+$/;
                     let notecell = cell.getElementsByClassName("notecell");    
                     if (numbers.test(h)){
                         cellnumber[index].innerHTML="&nbsp";  
@@ -317,7 +321,9 @@ function notes(){
                         toggleclick();
                     } else if (auto.test(h)){
                         autocheck();   
-                    }else {
+                    } else if (fillNote.test(h)){
+                        fillnotes();
+                    } else {
                         notecell[h - 1].innerHTML = "";
                     }
                 }
@@ -381,6 +387,7 @@ function resetTimer(){
     document.getElementById("seconds").innerHTML = "00";
     timeInterval = setInterval(increaseTime, 1000);
 }
+
 
 
 //Tools
@@ -475,6 +482,20 @@ function onenote(){
 
 function help(){
     alert("User Guide")
+}
+
+
+var shortcutPanel = false;
+function showshortcutPanel(){
+    if (shortcutPanel){
+        shortcutPanel = false;
+        document.getElementById("shortcutPanel").style.display = "none";
+        document.getElementById("keyboardShortcut").innerHTML = "Display Keyboard Shortcuts";
+    } else {
+        shortcutPanel = true;
+        document.getElementById("shortcutPanel").style.display = "block";
+        document.getElementById("keyboardShortcut").innerHTML = "Hide Keyboard Shortcuts";
+    }
 }
 
 //Database functions

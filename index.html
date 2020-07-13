@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>outofthebox</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="Sudoku.css">
+    <link rel="stylesheet" href="public/Sudoku.css">
     <link rel="icon" href="http://example.com/favicon.png">
 </head>
 
 <body>
     <div class="other_pages">
         <a href="tips.html" target="_blank" class="tipsButton"> Tips </a>
+        <a href="solver.html" target="_blank" class="tipsButton"> Solver </a>
         <button class="one" onclick="fillnotes()">
             Fill Notes
         </button>
@@ -22,7 +23,6 @@
         <button class="help" onclick="help()">
             ?
         </button>
-        <a href="solver.html" target="_blank" class="tipsButton"> Solver </a>
     </div>
 
     <div id="spacing"></div>
@@ -34,6 +34,7 @@
                 <button id="toggleShowTimer" onclick="toggleShowTimer()"> Hide Timer </button>
                 <button id="togglePause" onclick="togglePause()"> Stop Timer</button>
                 <button id="resetTimer" onclick="resetTimer()"> Reset Timer </button>
+                <button id="keyboardShortcut" onclick="showshortcutPanel()"> Display Keyboard Shortcuts</button>
             </div>
         </div>
         <div class="tab">
@@ -52,6 +53,9 @@
         <div id="timer">
             <label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label>
         </div>
+    </div>
+    <div id="shortcutPanel">
+        <p> A: Autocheck  |   C: ClickMode  | F: Fill-Notes | N: Notes(on)  | M: Notes(off)</p>
     </div>
   
 
@@ -1265,8 +1269,8 @@
     </div>
 
 
-    <script src="Sudoku.js"></script>
-    <script src="SudokujQuery.js"></script>
+    <script src="public/Sudoku.js"></script>
+    <script src="public/SudokujQuery.js"></script>
 </body>
 
 </html>
