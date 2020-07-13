@@ -16,7 +16,7 @@ function Erase(){
             clickmode=false;
             togglenote=false;
             document.getElementById("click").style.backgroundColor="#1a777a";
-            document.getElementById("Notes").style.backgroundColor="#1a777a";
+            document.getElementById("notes").style.backgroundColor="#1a777a";
         }
         document.getElementById("erase").style.backgroundColor="rgb(61,4,39)";
     }
@@ -50,14 +50,14 @@ function toggleclick(){
     }
 }
 
-function Notes(){
+function togglenotes(){
     if(togglenote){
         togglenote=false;
-        document.getElementById("Notes").style.backgroundColor="#1a777a";
+        document.getElementById("notes").style.backgroundColor="#1a777a";
     }
     else{
         togglenote=true;
-        document.getElementById("Notes").style.backgroundColor="rgb(61,4,39)";
+        document.getElementById("notes").style.backgroundColor="rgb(61,4,39)";
         if(erase){
             erase=false;
             document.getElementById("erase").style.backgroundColor="#1a777a";
@@ -203,6 +203,9 @@ function group(){
                 if(!togglenote && puzzle[index]==="0"){
                     let h=event.key;
                     var numbers = /^[1-9]+$/;
+                    var noteButton = /^[n]+$/;
+                    var clickmode = /^[c]+$/;
+                    var auto = /^[a]+$/;
                     if (numbers.test(h)){       //Only allow control from 1 to 9
                         for (let k =0; k< notecell.length; k++){
                             notecell[k].innerHTML="";
@@ -211,6 +214,12 @@ function group(){
                         if(Autocheck){
                             checkall();
                         }
+                    } else if (noteButton.test(h)){
+                        togglenotes();
+                    } else if (clickmode.test(h)){
+                        toggleclick();
+                    } else if (auto.test(h)){
+                        autocheck();
                     } else {
                         cellnumber[index].innerHTML = "&nbsp";
                         if(Autocheck){
@@ -291,6 +300,9 @@ function notes(){
                 if (togglenote && puzzle[index]==="0") {
                     let h=event.key;
                     var numbers = /^[1-9]+$/;
+                    var noteButton = /^[m]+$/;
+                    var clickmode = /^[c]+$/;
+                    var auto = /^[a]+$/;
                     let notecell = cell.getElementsByClassName("notecell");    
                     if (numbers.test(h)){
                         cellnumber[index].innerHTML="&nbsp";  
@@ -299,7 +311,13 @@ function notes(){
                         } else {                                //Else add the note to the cell
                             notecell[h - 1].innerHTML=h;
                         }
-                    } else {
+                    } else if (noteButton.test(h)){
+                        togglenotes();
+                    } else if (clickmode.test(h)){
+                        toggleclick();
+                    } else if (auto.test(h)){
+                        autocheck();   
+                    }else {
                         notecell[h - 1].innerHTML = "";
                     }
                 }
