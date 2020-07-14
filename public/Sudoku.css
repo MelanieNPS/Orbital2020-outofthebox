@@ -230,3 +230,43 @@ td:focus{
     transform: translateY(2px);
     color: white;
 }
+
+
+#showMain {
+    background-color: #166466;
+    padding: 16px 25px;
+    font: 16px;
+    color: white;
+    margin: 15px;
+    border: solid white 1px;
+}
+.guideTabs{
+    overflow: hidden;
+    background-color: none;
+    margin: auto;
+    margin-top: 35px;
+    width: 700px;
+}
+.guideTabs button{
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+    padding: 17px 25px;
+    font: 20px;
+    border: none;
+}
+.guideTabs button:hover {
+    background-color: rgb(20, 170, 170);
+}
+.guideContent{
+    display: none;
+    margin: auto;
+    width: 700px;
+    color: white;
+    text-align: center;
+    height: 90%;
+    font-size: 20px;
+}
+.guideControls{
+    text-align: left;
+}
