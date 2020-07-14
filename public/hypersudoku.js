@@ -171,7 +171,7 @@ function check(cell){
         }
     }
 
-    if(5<=row<=7 && 5<=column<=7){
+    if(5<=row && row<=7 && 5<=column && column<=7){
         for(let i=5;i<8;i++){
             for(let j=5;j<8;j++){
                 if(minibox!==`${i}${j}`){
@@ -185,7 +185,7 @@ function check(cell){
         }
     }
 
-    if(1<=row<=3 && 1<=column<=3){
+    if(1<=row && row<=3 && 1<=column && column<=3){
         for(let i=1;i<4;i++){
             for(let j=1;j<4;j++){
                 if(minibox!==`${i}${j}`){
@@ -199,7 +199,7 @@ function check(cell){
         }
     }
     
-    if(5<=row<=7 && 1<=column<=3){
+    if(5<=row && row<=7 && 1<=column && column<=3){
         for(let i=5;i<8;i++){
             for(let j=1;j<4;j++){
                 if(minibox!==`${i}${j}`){
@@ -213,7 +213,7 @@ function check(cell){
         }
     }
 
-    if(1<=row<=3 && 5<=column<=7){
+    if(1<=row && row<=3 && 5<=column && column<=7){
         for(let i=1;i<4;i++){
             for(let j=5;j<8;j++){
                 if(minibox!==`${i}${j}`){
@@ -477,28 +477,28 @@ function checkstring(pos,num,grid){
     //extra hypersudoku constraints
     for(let i=0; i<3; i++){
         for(let j=0; j<3; j++){
-            if(1<=colStart<=3 && 9<=rowstart<36){
+            if((1<=colStart && colStart<=3) && (9<=rowStart && rowStart<36)){
                 let X=1
                 let Y=1
                 if(grid[X+Y*9+i*9+j]==num){
                     return false;
                 }
             }
-            if(5<=colStart<=7 && 9<=rowstart<36){
+            if((5<=colStart && colStart<=7) && (9<=rowStart && colStart<36)){
                 let X=5
                 let Y=1
                 if(grid[X+Y*9+i*9+j]==num){
                     return false;
                 }
             }
-            if(1<=colStart<=3 && 45<=rowstart<72){
+            if((1<=colStart && colStart<=3) && (45<=rowStart && rowStart<72)){
                 let X=1
                 let Y=1
                 if(grid[X+Y*9+i*9+j]==num){
                     return false;
                 }
             }
-            if(5<=colStart<=7 && 45<=rowstart<72){
+            if((5<=colStart && colStart<=7) && (45<=rowStart && rowStart<72)){
                 let X=1
                 let Y=1
                 if(grid[X+Y*9+i*9+j]==num){
@@ -592,8 +592,8 @@ function showshortcutPanel(){
 
 //Database functions
 //one puzzle here is for testing purposes
-var puzzle = "0".repeat(81)//"000000000007005030500310890012700600900050310000020000006000700000060020003807406";
-var solved = "0".repeat(81)//"231978564897645231564312897312789645978456312645123978456231789789564123123897456";
+var puzzle = "000000000007005030500310890012700600900050310000020000006000700000060020003807406";
+var solved = "231978564897645231564312897312789645978456312645123978456231789789564123123897456";
 
 async function readStringEasy(){
     try {
