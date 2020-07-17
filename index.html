@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>outofthebox</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="Sudoku.css">
+    <link rel="stylesheet" href="public/Sudoku.css">
     <link rel="icon" href="http://example.com/favicon.png">
 </head>
 
 <body>
-    <div id="classic" style="display: block;">
+    <div id="main" style="display: block;">
         <div class="other_pages">
             <a href="tips.html" target="_blank" class="tipsButton"> Tips </a>
             <a href="solver.html" target="_blank" class="tipsButton"> Solver </a>
@@ -1288,6 +1288,12 @@
             <p> In a classic Sudoku puzzle, there are 9 rows, 9 columns and 9 boxes</p>
             <p> Each row, column and box must contain the numbers 1 - 9</p> 
             <p> The same number cannot appear twice in a row, column or box</p>
+
+            <div style="height: 50px;"></div>
+            <h3> Hyper Sudoku </h3>
+            <img src="UserGuideImages/RulesHyper.PNG" width="400px">
+            <p> The rules for hyper sudoku are similar to that of classic sudoku except that there are now 4 extra boxes </p>
+            <p> These 4 new boxes (dark blue color) must also contain the numbers 1 - 9 with no repeats</p>
         </div>
         <div id="tabTwo" class="guideContent">
             <h2> Controls </h2>
@@ -1350,8 +1356,8 @@
     </div>
 
 
-    <script src="Sudoku.js"></script>
-    <script src="SudokujQuery.js"></script>
+    <script src="public/Sudoku.js"></script>
+    <script src="public/SudokujQuery.js"></script>
 </body>
 
 </html>

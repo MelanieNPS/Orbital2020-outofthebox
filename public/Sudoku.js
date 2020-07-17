@@ -500,11 +500,11 @@ function showshortcutPanel(){
 
   function showuserGuide(){
       document.getElementById("userGuide").style.display = "block";
-      document.getElementById("classic").style.display = "none";
+      document.getElementById("main").style.display = "none";
   }
   function showMain(){
       document.getElementById("userGuide").style.display = "none"
-      document.getElementById("classic").style.display ="block"
+      document.getElementById("main").style.display ="block"
   }
   function openTab(tabName){
       var guideContent = document.getElementsByClassName("guideContent");

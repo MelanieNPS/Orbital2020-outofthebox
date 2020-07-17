@@ -11,1263 +11,1349 @@
 </head>
 
 <body>
-    <div class="other_pages">
-        <a href="tips.html" target="_blank" class="tipsButton"> Tips </a>
-        <a href="solver.html" target="_blank" class="tipsButton"> Solver </a>
-        <button class="one" onclick="fillnotes()">
-            Fill Notes
-        </button>
-        <button class="one" onclick="onenote()">
-            Choose Notes
-        </button>
-        <button class="help" onclick="help()">
-            ?
-        </button>
-    </div>
+    <div id="main">
+        <div class="other_pages">
+            <a href="tips.html" target="_blank" class="tipsButton"> Tips </a>
+            <a href="solver.html" target="_blank" class="tipsButton"> Solver </a>
+            <button class="tipsButton" onclick="showuserGuide()"> User Guide </button>
+            <button class="one" onclick="fillnotes()">
+                Fill Notes
+            </button>
+            <button class="one" onclick="onenote()">
+                Choose Notes
+            </button>
+            <button class="help" onclick="help()">
+                ?
+            </button>
+        </div>
 
-    <div id="spacing"></div>
+        <div id="spacing"></div>
 
-    <div class="tabBar">
-        <div class="tab">
-            <button class="tabButton"> Options </button>
-            <div class="tab-options">
-                <button id="toggleShowTimer" onclick="toggleShowTimer()"> Hide Timer </button>
-                <button id="togglePause" onclick="togglePause()"> Stop Timer</button>
-                <button id="resetTimer" onclick="resetTimer()"> Reset Timer </button>
-                <button id="keyboardShortcut" onclick="showshortcutPanel()"> Display Keyboard Shortcuts</button>
+        <div class="tabBar">
+            <div class="tab">
+                <button class="tabButton"> Options </button>
+                <div class="tab-options">
+                    <button id="toggleShowTimer" onclick="toggleShowTimer()"> Hide Timer </button>
+                    <button id="togglePause" onclick="togglePause()"> Stop Timer</button>
+                    <button id="resetTimer" onclick="resetTimer()"> Reset Timer </button>
+                    <button id="keyboardShortcut" onclick="showshortcutPanel()"> Display Keyboard Shortcuts</button>
+                </div>
+            </div>
+            <div class="tab">
+                <button class="tabButton" id="newGame" onclick="newgame()"> New Game</button>
+            </div>
+            <div class="tab">
+                <button class="tabButton" id="difficulty"> Random </button>
+                <div class="tab-options">
+                    <button id="easy" onclick="newgameEasy()"> Easy  </button>
+                    <button id="medium" onclick="newgameMedium()"> Medium </button>
+                    <button id="hard" onclick="newgameHard()"> Hard </button>
+                    <button id="expert" onclick="newgameExpert()"> Expert </button>
+                    <button id="random" onclick="newgameRandom()"> Random </button>
+                </div>
+            </div>
+            <div id="timer">
+                <label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label>
             </div>
         </div>
-        <div class="tab">
-            <button class="tabButton" id="newGame" onclick="newgame()"> New Game</button>
+        <div id="shortcutPanel">
+            <p> A: Autocheck  |   C: ClickMode  | F: Fill-Notes | N: Notes(on)  | M: Notes(off)</p>
         </div>
-        <div class="tab">
-            <button class="tabButton" id="difficulty"> Random </button>
-            <div class="tab-options">
-                <button id="easy" onclick="newgameEasy()"> Easy  </button>
-                <button id="medium" onclick="newgameMedium()"> Medium </button>
-                <button id="hard" onclick="newgameHard()"> Hard </button>
-                <button id="expert" onclick="newgameExpert()"> Expert </button>
-                <button id="random" onclick="newgameRandom()"> Random </button>
+    
+
+        <div id="spacing"></div>
+
+        <table id="box">
+            <tr id="rowZero">
+                <td id="cell00"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell01"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell02"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell03"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell04"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell05"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell06"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell07"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell08"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr id="rowOne">
+                <td id="cell10"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell11"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell12"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell13"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell14"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell15"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell16"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell17"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell18"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr id="rowTwo" class="row">
+                <td id="cell20"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell21"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell22"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell23"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell24"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell25"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell26"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell27"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell28"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr id="rowThree">
+                <td id="cell30"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell31"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell32"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell33"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell34"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell35"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell36"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell37"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell38"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr id="rowFour">
+                <td id="cell40"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell41"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell42"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell43"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell44"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell45"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell46"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell47"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell48"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr id="rowFive" class="row">
+                <td id="cell50"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell51"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell52"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell53"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell54"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell55"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell56"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell57"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell58"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr id="rowSix">
+                <td id="cell60"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell61"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell62"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell63"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell64"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell65"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell66"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell67"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell68"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr id="rowSeven">
+                <td id="cell70"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell71"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell72"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell73"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell74"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell75"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell76"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell77"  class="hypercell cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell78"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr id="rowEight">
+                <td id="cell80"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell81"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell82"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell83"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell84"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell85"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell86"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell87"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+                <td id="cell88"  class="cell" tabindex="0">
+                    <div class="cellnumber"></div>
+                    <div class="note">
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                        <div class="notecell"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+
+        <div id="spacing-lower"></div>
+
+
+        <div id="control">
+            <div onclick="choose(0)" class="numbers">
+                1
+            </div>
+            <div onclick="choose(1)" class="numbers">
+                2
+            </div>
+            <div onclick="choose(2)" class="numbers">
+                3
+            </div>
+            <div onclick="choose(3)" class="numbers">
+                4
+            </div>
+            <div onclick="choose(4)" class="numbers">
+                5
+            </div>
+            <div onclick="choose(5)" class="numbers">
+                6
+            </div>
+            <div onclick="choose(6)" class="numbers">
+                7
+            </div>
+            <div onclick="choose(7)" class="numbers">
+                8
+            </div>
+            <div onclick="choose(8)" class="numbers">
+                9
             </div>
         </div>
-        <div id="timer">
-            <label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label>
-        </div>
-    </div>
-    <div id="shortcutPanel">
-        <p> A: Autocheck  |   C: ClickMode  | F: Fill-Notes | N: Notes(on)  | M: Notes(off)</p>
-    </div>
-  
-
-    <div id="spacing"></div>
-
-    <table id="box">
-        <tr id="rowZero">
-            <td id="cell00"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell01"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell02"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell03"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell04"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell05"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell06"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell07"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell08"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-        </tr>
-        <tr id="rowOne">
-            <td id="cell10"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell11"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell12"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell13"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell14"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell15"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell16"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell17"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell18"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-        </tr>
-        <tr id="rowTwo" class="row">
-            <td id="cell20"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell21"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell22"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell23"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell24"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell25"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell26"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell27"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell28"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-        </tr>
-        <tr id="rowThree">
-            <td id="cell30"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell31"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell32"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell33"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell34"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell35"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell36"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell37"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell38"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-        </tr>
-        <tr id="rowFour">
-            <td id="cell40"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell41"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell42"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell43"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell44"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell45"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell46"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell47"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell48"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-        </tr>
-        <tr id="rowFive" class="row">
-            <td id="cell50"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell51"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell52"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell53"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell54"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell55"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell56"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell57"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell58"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-        </tr>
-        <tr id="rowSix">
-            <td id="cell60"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell61"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell62"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell63"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell64"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell65"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell66"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell67"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell68"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-        </tr>
-        <tr id="rowSeven">
-            <td id="cell70"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell71"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell72"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell73"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell74"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell75"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell76"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell77"  class="hypercell cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell78"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-        </tr>
-        <tr id="rowEight">
-            <td id="cell80"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell81"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell82"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell83"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell84"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell85"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell86"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell87"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-            <td id="cell88"  class="cell" tabindex="0">
-                <div class="cellnumber"></div>
-                <div class="note">
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                    <div class="notecell"></div>
-                </div>
-            </td>
-        </tr>
-    </table>
-
-
-    <div id="spacing-lower"></div>
-
-
-    <div id="control">
-        <div onclick="choose(0)" class="numbers">
-            1
-        </div>
-        <div onclick="choose(1)" class="numbers">
-            2
-        </div>
-        <div onclick="choose(2)" class="numbers">
-            3
-        </div>
-        <div onclick="choose(3)" class="numbers">
-            4
-        </div>
-        <div onclick="choose(4)" class="numbers">
-            5
-        </div>
-        <div onclick="choose(5)" class="numbers">
-            6
-        </div>
-        <div onclick="choose(6)" class="numbers">
-            7
-        </div>
-        <div onclick="choose(7)" class="numbers">
-            8
-        </div>
-        <div onclick="choose(8)" class="numbers">
-            9
-        </div>
-    </div>
-    
-    <div id="spacing-lower"></div>
-    
-    <div id="control2">
-        <div>
-            <button type="button" id="check" onclick="toggleCheck()">Check</button>
-            <button id="autocheck" type="button" onclick="autocheck()">Autocheck</button>
-        </div>
-        <div>
-            <button type="button" id="erase" onclick="Erase()">Erase</button>
-            <button tyep="button" onclick="clearAll()">Clear All</button>
-            <button type="button" id="click" onclick="toggleclick()">Click Mode</button>
-            <button type="button" id="notes" onclick="togglenotes()">Notes</button>
-        </div>
-        <div>
-            <button type="button" onclick="showSolved()">I give up!</button>
+        
+        <div id="spacing-lower"></div>
+        
+        <div id="control2">
+            <div>
+                <button type="button" id="check" onclick="toggleCheck()">Check</button>
+                <button id="autocheck" type="button" onclick="autocheck()">Autocheck</button>
+            </div>
+            <div>
+                <button type="button" id="erase" onclick="Erase()">Erase</button>
+                <button tyep="button" onclick="clearAll()">Clear All</button>
+                <button type="button" id="click" onclick="toggleclick()">Click Mode</button>
+                <button type="button" id="notes" onclick="togglenotes()">Notes</button>
+            </div>
+            <div>
+                <button type="button" onclick="showSolved()">I give up!</button>
+            </div>
         </div>
     </div>
 
+    <div id="userGuide" style="display: none;">
+
+        <div class="guideTabs">
+            <button id="showMain" onclick="showMain()"> Back </button>
+            <button class="guideLinks" onclick="openTab('One')"> Rules </button>
+            <button class="guideLinks" onclick="openTab('Two')"> Controls </button>
+            <button class="guideLinks" onclick="openTab('Three')"> Tools </button>
+            <div style="height: 15px; border-bottom: solid white 2px;"></div>
+        </div>
+        <div id="tabOne" class="guideContent" style="display: block;">
+            <h2> Rules </h2>
+            <div style="height: 10px;"></div>
+            <h3> Classic Sudoku </h3>
+            <img src="UserGuideImages/RulesClassic.png" width="400px">
+            <p> In a classic Sudoku puzzle, there are 9 rows, 9 columns and 9 boxes</p>
+            <p> Each row, column and box must contain the numbers 1 - 9</p> 
+            <p> The same number cannot appear twice in a row, column or box</p>
+
+            <div style="height: 50px;"></div>
+            <h3> Hyper Sudoku </h3>
+            <img src="UserGuideImages/RulesHyper.PNG" width="400px">
+            <p> The rules for hyper sudoku are similar to that of classic sudoku except that there are now 4 extra boxes </p>
+            <p> These 4 new boxes (dark blue color) must also contain the numbers 1 - 9 with no repeats</p>
+        </div>
+        <div id="tabTwo" class="guideContent">
+            <h2> Controls </h2>
+            <div class="guideControls">
+                <h3 style="text-decoration: underline;"> Click Mode </h3>
+                <p> Clickmode must be active to use </p>
+                <p> * To input a number into a cell, click on the number from the number panel then on the cell</p>
+                <img src="UserGuideImages/ControlsClickmode.PNG" width="450px;">
+                <p> * To erase, click on the erase button in the bottom panel, then click on the cell</p>
+
+                <div style="height: 25px;"></div>
+
+                <h3 style="text-decoration: underline;"> Keyboard </h3>
+                <p> * Cells can be navigated with arrow keys </p>
+                <p> * Numbers can be inputted using number keys (1 - 9) </p>
+                <p> Keyboard shortcuts can only be used when an input cell is highlighted</p>
+                <p> * Toggle autocheck on & off, press "a"</p>
+                <p> * Toggle clickmode on & off, press "c"</p>
+                <p> * Fill notes for empty cells, press "f "</p>
+                <p> * Toggle notes on, press "n"</p>
+                <p> * Toggle notes off, press "m"</p>
+                <p> Refer to Options -> Display Keyboard Shortcuts on main page</p>
+            </div>
+        </div>
+        <div id="tabThree" class="guideContent">
+            <h2> Tools </h2>
+            <div class="guideControls">
+                <img src="UserGuideImages/Tools1.PNG" width="500px" style="border: solid white 1px">
+                <h3 style="text-decoration: underline;"> Check </h3>
+                <p> Cells turn green if numbers are right, turns red if numbers are wrong</p>
+                <div style="height: 5px;"></div>
+                <h3 style="text-decoration: underline;"> Auto-check</h3>
+                <p> Checks if number input is valid, according to the rules</p>
+                <p> Numbers will turn red if rules are broken</p>
+                <div style="height: 5px;"></div>
+                <h3 style="text-decoration: underline;"> Clear All </h3>
+                <p> Resets the current puzzle </p>
+                <div style="height: 5px;"></div>
+                <h3 style="text-decoration: underline;"> Notes/ Fill Notes </h3>
+                <p> Allows user to input notes into the cell </p>
+                <p> Controls for the notes are the same</p>
+                <p> Fill notes button will automatically fill empty cells with the possible notes</p>
+                <div style="height: 5px;"></div>
+                <h3 style="text-decoration: underline;"> Give up button</h3>
+                <p> Shows the answer to the puzzle </p>
+                <div style="height: 5px;"></div>
+                <h3 style="text-decoration: underline;"> Timer </h3>
+                <p> Able to stop, hide and reset timer. Function found in Options tab </p>
+                <div style="height: 5px;"></div>
+                <h3 style="text-decoration: underline;"> Tips </h3>
+                <p> Page for various tips can be found at the top of the main page</p>
+                <div style="height: 5px;"></div>
+                <h3 style="text-decoration: underline;"> Solver</h3>
+                <p> Page for solver can be found at the top of the main page </p>
+                <p> Input the puzzle to be solved into the empty grid</p>
+                <p> Puzzles that are invalid, will recieve an alert message</p>
+
+            </div>
+        </div>
+    </div>
 
     <script src="hypersudoku.js"></script>
     <script src="HyperSudokujQuery.js"></script>

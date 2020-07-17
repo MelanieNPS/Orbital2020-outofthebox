@@ -590,6 +590,27 @@ function showshortcutPanel(){
     }
 }
 
+function showuserGuide(){
+    document.getElementById("userGuide").style.display = "block";
+    document.getElementById("main").style.display = "none";
+}
+function showMain(){
+    document.getElementById("userGuide").style.display = "none"
+    document.getElementById("main").style.display ="block"
+}
+function openTab(tabName){
+    var guideContent = document.getElementsByClassName("guideContent");
+    for (var i = 0; i < guideContent.length; i++){
+        guideContent[i].style.display = "none";
+    }
+    guideLinks = document.getElementsByClassName("guideLinks");
+    for (var i = 0; i < guideLinks.length; i++){
+        guideLinks[i].className = guideLinks[i].className.replace("active", "");
+    }
+    document.getElementById("tab" + tabName).style.display = "block";
+    event.currentTarget.className += "active";
+}
+
 //Database functions
 //one puzzle here is for testing purposes
 var puzzle = "000000000007005030500310890012700600900050310000020000006000700000060020003807406";
