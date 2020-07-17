@@ -590,23 +590,111 @@ function showshortcutPanel(){
     }
 }
 
-//Faux database
-var puzzle_string;
-var solved_string;
+//Database functions
+//one puzzle here is for testing purposes
+var puzzle = "000000000007005030500310890012700600900050310000020000006000700000060020003807406";
+var solved = "231978564897645231564312897312789645978456312645123978456231789789564123123897456";
+
+async function readStringEasy(){
+    try {
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringEasy", {method:"GET"})
+        const puzzleString = await result.json();  
+        puzzleString.forEach (t => {
+            puzzle = t.puzzle_string;
+            solved = t.solved_string;
+        })
+    }
+    catch (e) {
+        console.log("error reading puzzleString")
+    }
+}
+async function readStringMedium(){
+    try {
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringMedium", {method:"GET"})
+        const puzzleString = await result.json();  
+        puzzleString.forEach (t => {
+            puzzle = t.puzzle_string;
+            solved = t.solved_string;
+        })
+    }
+    catch (e) {
+        console.log("error reading puzzleString")
+    }
+}
+async function readStringHard(){
+    try {
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringHard", {method:"GET"})
+        const puzzleString = await result.json();  
+        puzzleString.forEach (t => {
+            puzzle = t.puzzle_string;
+            solved = t.solved_string;
+        })
+    }
+    catch (e) {
+        console.log("error reading puzzleString")
+    }
+}
+async function readStringExpert(){
+    try {
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringExpert", {method:"GET"})
+        const puzzleString = await result.json();  
+        puzzleString.forEach (t => {
+            puzzle = t.puzzle_string;
+            solved = t.solved_string;
+        })
+    }
+    catch (e) {
+        console.log("error reading puzzleString")
+    }
+}
+async function readStringRandom(){
+    try {
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringRandom", {method:"GET"})
+        const puzzleString = await result.json();  
+        puzzleString.forEach (t => {
+            puzzle = t.puzzle_string;
+            solved = t.solved_string;
+        })
+    }
+    catch (e) {
+        console.log("error reading puzzleString")
+    }
+}
 
 
-var hyperpuzzle1 = {puzzle_string : "020508040003120806500009000050007030100000090090406125000003072036200001080001060", difficulty : "easy", solved_string : "621578349973124856548639217852917634164352798397486125415863972736295481289741563"};
-
-
-function newgame(){
-    puzzle_string = hyperpuzzle1.puzzle_string;
-    solved_string = hyperpuzzle1.solved_string;
+function newgameEasy(){
+    document.getElementById("difficulty").innerHTML = "Easy";
+    readStringEasy()
+    .then(()=>{
+    clearAll();
     let cellnumber = document.getElementsByClassName("cellnumber");
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
             let index = (i * 9) + j;
-            if (puzzle_string.charAt(index) != 0){
-                cellnumber[index].innerHTML= puzzle_string.charAt(index);
+            if (puzzle.charAt(index) != 0){
+                cellnumber[index].innerHTML= puzzle.charAt(index);
+                cellnumber[index].style.color="white";
+            } else {
+                cellnumber[index].innerHTML="&nbsp";
+                cellnumber[index].style.color="rgb(42,233,255)";
+            }
+        }
+    }
+    resetTimer()
+    })
+    .catch((e)=>console.log(e))
+}
+function newgameMedium(){
+    document.getElementById("difficulty").innerHTML = "Medium";
+    readStringMedium()
+    .then(()=>{
+    clearAll();
+    let cellnumber = document.getElementsByClassName("cellnumber");
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = (i * 9) + j;
+            if (puzzle.charAt(index) != 0){
+                cellnumber[index].innerHTML= puzzle.charAt(index);
                 cellnumber[index].style.color="white";
             } else {
                 cellnumber[index].innerHTML="&nbsp";
@@ -615,5 +703,101 @@ function newgame(){
         }
     }
     resetTimer();
+    })
+    .catch((e)=>console.log(e))
+}
+function newgameHard(){
+    document.getElementById("difficulty").innerHTML = "Hard";
+    readStringHard()
+    .then(()=>{
+    clearAll()    
+    let cellnumber = document.getElementsByClassName("cellnumber");
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = (i * 9) + j;
+            if (puzzle.charAt(index) != 0){
+                cellnumber[index].innerHTML= puzzle.charAt(index);
+                cellnumber[index].style.color="white";
+            } else {
+                cellnumber[index].innerHTML="&nbsp";
+                cellnumber[index].style.color="rgb(42,233,255)";
+            }
+        }
+    }
+    resetTimer();
+    })
+    .catch((e)=>console.log(e))
+}
+function newgameExpert(){
+    document.getElementById("difficulty").innerHTML = "Expert";
+    readStringExpert()
+    .then(()=>{
+    clearAll();    
+    let cellnumber = document.getElementsByClassName("cellnumber");
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = (i * 9) + j;
+            if (puzzle.charAt(index) != 0){
+                cellnumber[index].innerHTML= puzzle.charAt(index);
+                cellnumber[index].style.color="white";
+            } else {
+                cellnumber[index].innerHTML="&nbsp";
+                cellnumber[index].style.color="rgb(42,233,255)";
+            }
+        }
+    }
+    resetTimer();
+    })
+    .catch((e)=>console.log(e))
+}
+function newgameRandom(){
+    document.getElementById("difficulty").innerHTML = "Random";
+    readStringRandom()
+    .then(()=>{
+    clearAll();    
+    let cellnumber = document.getElementsByClassName("cellnumber");
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = (i * 9) + j;
+            if (puzzle.charAt(index) != 0){
+                cellnumber[index].innerHTML= puzzle.charAt(index);
+                cellnumber[index].style.color="white";
+            } else {
+                cellnumber[index].innerHTML="&nbsp";
+                cellnumber[index].style.color="rgb(42,233,255)";
+            }
+        }
+    }
+    resetTimer();
+    })
+    .catch((e)=>console.log(e))
+}
+function newgame(){
+    var difficulty = document.getElementById("difficulty").innerHTML;
+    switch (difficulty){
+        case "Easy":  newgameEasy();  break;
+        case "Medium": newgameMedium(); break;
+        case "Hard": newgameHard(); break;
+        case "Expert": newgameExpert(); break;
+        default: newgameRandom(); 
+    }
+    resetTimer();
 }
 
+
+function showSolved(){
+    clearAll()
+    let cellnumber = document.getElementsByClassName("cellnumber");
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = (i * 9) + j;
+            cellnumber[index].innerHTML= solved.charAt(index);
+            if(puzzle[index]!=="0"){
+                cellnumber[index].style.color="white";
+            }
+            else{
+                cellnumber[index].style.color="rgb(42,233,255)";
+            }
+        }
+    }
+}
