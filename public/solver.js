@@ -32,43 +32,40 @@ function Erase(){
 }
 function Reset(){
     var c = document.getElementsByClassName("cellnumber");
-    for (let i = 0; i<81; i++){
+    for (let i = 0; i<162; i++){
         c[i].innerHTML = "";
     }
 }
 
 
-
 function group(){
     let cellnumber = document.getElementsByClassName("cellnumber");
-    for(let i=0;i<9;i++){
-        for(let j=0; j<9; j++){
-            let c = document.getElementById("cell" + i + j);
-            let index = (i * 9) + j;
-            c.addEventListener("click",change);
-            c.addEventListener("click", eraseCell)
-            c.addEventListener("keypress",keyboard);
-            function keyboard(event){
-                let h=event.key;
-                var numbers = /^[1-9]+$/;
-                if (numbers.test(h)){       //Only allow control from 1 to 9
-                    cellnumber[index].innerHTML=h;
-                } else {
-                    cellnumber[index].innerHTML = "&nbsp";
-                }
+    let cell = document.getElementsByClassName("cell");
+    for(let i=0;i<162;i++){
+        var c = cell[i];
+        c.addEventListener("click",change);
+        c.addEventListener("click", eraseCell)
+        c.addEventListener("keypress",keyboard);
+        function keyboard(event){
+            let h=event.key;
+            var numbers = /^[1-9]+$/;
+            if (numbers.test(h)){       //Only allow control from 1 to 9
+                cellnumber[i].innerHTML=h;
+            } else {
+                cellnumber[i].innerHTML = "&nbsp";
             }
+        }
             
-            function change(){
-                if(clickmode && k!==undefined){
-                    cellnumber[index].innerHTML = k;    
-                } 
-            }
+        function change(){
+            if(clickmode && k!==undefined){
+                cellnumber[i].innerHTML = k;    
+            } 
+        }
 
-            function eraseCell(){
-                if(erase){
-                    cellnumber[index].innerHTML = "&nbsp";
-                } else {}
-            }
+        function eraseCell(){
+            if(erase){
+                cellnumber[i].innerHTML = "&nbsp";
+            } else {}
         }
     }
 }
@@ -94,7 +91,7 @@ function changeColor(){
 
 
 
-//Solver functions
+//Solver functions for classic
 var board;
 function createBoard(){
     var cellnumber = document.getElementsByClassName("cellnumber");
@@ -102,7 +99,7 @@ function createBoard(){
     for (var i = 0; i< 9; i++ ){
         board[i] = [];
         for(var j = 0; j <9; j++){
-            let index = (i * 9) + j;
+            let index = ((i * 9) + j) + 81;
             if (0 < cellnumber[index].innerHTML < 10){
                 board[i][j] = cellnumber[index].innerHTML;
             } else {
@@ -114,7 +111,7 @@ function createBoard(){
 }
 
 
-function valid(){
+function valid(board){
     function validRow(row){
         var arr = [];
         for (var i = 0; i < 9; i++){
@@ -211,7 +208,7 @@ function output(){
 
     for (var i = 0; i < 9; i++){
         for (var j = 0; j < 9; j++){
-            let index = (i * 9) + j;
+            let index = ((i * 9) + j) + 81;
             cellnumber[index].innerHTML = board[i][j];
         }
     }
@@ -219,11 +216,159 @@ function output(){
 
 function Solve(){
     board = createBoard();
-    if (valid()){
+    if (valid(board)){
         solveRecursion();
         output();
     } else {
         alert ("Invalid Input");
     }
+}
+
+
+
+
+// Solver for hyper sudoku
+
+var hyperboard;
+
+function createHyperBoard(){
+    var cellnumber = document.getElementsByClassName("cellnumber");
+    var hyperboard = [];
+    for (var i = 0; i< 9; i++ ){
+        hyperboard[i] = [];
+        for(var j = 0; j <9; j++){
+            let index = (i * 9) + j;
+            if (0 < cellnumber[index].innerHTML < 10){
+                hyperboard[i][j] = cellnumber[index].innerHTML;
+            } else {
+                hyperboard[i][j] = 0;
+            }
+        }
+    }
+    return hyperboard;
+}
+
+function validHyper(board){
+    function validSquare (row, column){
+        var arr = [];
+        for (var i = 0; i < 3; i++){
+            for (var j = 0; j < 3; j++){
+                if (board[row + i][column + j] !== ""){
+                    if (arr[board[row + i][column + j]] === undefined){
+                        arr[board[row + i][column + j]] = 1;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    if (valid(board)){
+        for (var i = 0; i < 9 ; i++){
+            for (var j = 0; j < 9; j++){
+                if (!(i % 4 == 0 || j % 4 == 0)){
+                    if(!validSquare ((i - (i % 4) + 1), (j - (j % 4) + 1))){
+                        return false;
+                    }
+                }
+            }
+        }
+    } else {
+        return false;
+    }
+    return true;
+}
+
+
+function stillValidHyper (row, column, number) {
+    var rowStart = row - row % 3;
+    var colStart = column - column % 3;
+    for (var i = rowStart; i < rowStart + 3; i++) {
+        for (var j = colStart; j < colStart + 3; j++) {
+            if (hyperboard[i][j] == number)
+                return false;
+        }
+    }
+    for (var i = 0; i < hyperboard.length; i++){
+        if ((hyperboard[i][column] == number) || (hyperboard[row][i] == number)){
+            return false;
+        }
+    }
+
+    if (!(row % 4 == 0 || column % 4 == 0)){
+        var innerRowStart = row - (row % 4) + 1;
+        var innerColumnStart = column - (column % 4) + 1;
+        for (var i = innerRowStart; i < innerRowStart + 3; i++){
+            for (var j = innerColumnStart; j < innerColumnStart + 3; j++){
+                if (hyperboard[i][j] == number){
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+function solveRecursionHyper() {
+    for (var row = 0; row < 9; row++) {
+        for (var column = 0; column < 9; column++) {
+            if (hyperboard[row][column] == 0) {
+                for (var number = 1; number <= 9; number++) {
+                    if (stillValidHyper(row, column, number)) {
+                        hyperboard[row][column] = number;
+                        if (solveRecursionHyper())
+                            return true;
+                        else
+                            hyperboard[row][column] = 0;
+                    }
+                }
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function outputHyper(){
+    var cellnumber = document.getElementsByClassName("cellnumber");
+
+    for (var i = 0; i < 9; i++){
+        for (var j = 0; j < 9; j++){
+            let index = ((i * 9) + j);
+            cellnumber[index].innerHTML = hyperboard[i][j];
+        }
+    }
+}
+
+function solveHyper(){
+    hyperboard = createHyperBoard();
+    var bool = validHyper(hyperboard);
+    if (validHyper(hyperboard)){
+        solveRecursionHyper();
+        outputHyper();
+    } else {
+        alert ("Invalid Input");
+    }
+    document.getElementById("test").innerHTML = bool;
+}
+
+
+//functions to change type of sudoku solved
+function showClassic(){
+    Reset();
+    document.getElementById("changeType").innerHTML = "Classic";
+    document.getElementById("solve").setAttribute("onClick", "Solve()")
+    document.getElementById("classic").style.display = "block";
+    document.getElementById("hyper").style.display = "none";
+}
+
+function showHyper(){
+    Reset();
+    document.getElementById("changeType").innerHTML = "Hyper Sudoku";
+    document.getElementById("solve").setAttribute("onClick", "solveHyper()")
+    document.getElementById("classic").style.display = "none";
+    document.getElementById("hyper").style.display = "block";
 }
 
