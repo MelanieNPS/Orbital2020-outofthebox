@@ -618,11 +618,11 @@ var solved = "231978564897645231564312897312789645978456312645123978456231789789
 
 async function readStringEasy(){
     try {
-        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringEasy", {method:"GET"})
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringEasyHyper", {method:"GET"})
         const puzzleString = await result.json();  
         puzzleString.forEach (t => {
-            puzzle = t.puzzle_string;
-            solved = t.solved_string;
+            puzzle = t.hyper_puzzle_string;
+            solved = t.hyper_solved_string;
         })
     }
     catch (e) {
@@ -673,8 +673,8 @@ async function readStringRandom(){
         const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringRandom", {method:"GET"})
         const puzzleString = await result.json();  
         puzzleString.forEach (t => {
-            puzzle = t.puzzle_string;
-            solved = t.solved_string;
+            puzzle = t.hyper_puzzle_string;
+            solved = t.hyper_solved_string;
         })
     }
     catch (e) {
@@ -793,6 +793,7 @@ function newgameRandom(){
     })
     .catch((e)=>console.log(e))
 }
+
 function newgame(){
     var difficulty = document.getElementById("difficulty").innerHTML;
     switch (difficulty){

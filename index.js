@@ -25,6 +25,7 @@ app.get("/tips", async (req,res) => {
   res.sendFile(__dirname + '/tips.html')
 })
 
+//For Classic Sudoku Puzzles
 app.get("/puzzleStringEasy", async(req, res) => {
   const puzzle = await readOneRowEasy();
   res.setHeader ("content-type", "application/json")
@@ -97,6 +98,24 @@ async function readOneRowRandom(){
     return [];
   }
 }
+
+//For Hyper Sudoku Puzzles
+app.get("/puzzleStringEasyHyper", async(req, res) => {
+  const puzzle = await readOneRowEasyHyper();
+  res.setHeader ("content-type", "application/json")
+  res.send(JSON.stringify(puzzle))
+})
+
+async function readOneRowEasyHyper(){
+  try {
+    const result = await pool.query("SELECT * FROM sudoku WHERE hyper_difficulty='Easy' ORDER BY random() LIMIT 1")
+    return result.rows;
+  } catch (e) {
+    return [];
+  }
+}
+
+
 //app.get("/",(req,res)=>res.sendFile(`${__dirname}/index.html`))
 
 
