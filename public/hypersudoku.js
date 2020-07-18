@@ -631,11 +631,11 @@ async function readStringEasy(){
 }
 async function readStringMedium(){
     try {
-        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringMedium", {method:"GET"})
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringMediumHyper", {method:"GET"})
         const puzzleString = await result.json();  
         puzzleString.forEach (t => {
-            puzzle = t.puzzle_string;
-            solved = t.solved_string;
+            puzzle = t.hyper_puzzle_string;
+            solved = t.hyper_solved_string;
         })
     }
     catch (e) {
@@ -644,11 +644,11 @@ async function readStringMedium(){
 }
 async function readStringHard(){
     try {
-        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringHard", {method:"GET"})
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringHardHyper", {method:"GET"})
         const puzzleString = await result.json();  
         puzzleString.forEach (t => {
-            puzzle = t.puzzle_string;
-            solved = t.solved_string;
+            puzzle = t.hyper_puzzle_string;
+            solved = t.hyper_solved_string;
         })
     }
     catch (e) {
@@ -657,11 +657,11 @@ async function readStringHard(){
 }
 async function readStringExpert(){
     try {
-        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringExpert", {method:"GET"})
+        const result = await fetch ("https://sudokudatabase.herokuapp.com/puzzleStringExpertHyper", {method:"GET"})
         const puzzleString = await result.json();  
         puzzleString.forEach (t => {
-            puzzle = t.puzzle_string;
-            solved = t.solved_string;
+            puzzle = t.hyper_puzzle_string;
+            solved = t.hyper_solved_string;
         })
     }
     catch (e) {

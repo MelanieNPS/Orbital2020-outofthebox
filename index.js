@@ -99,12 +99,30 @@ async function readOneRowRandom(){
   }
 }
 
+
+
 //For Hyper Sudoku Puzzles
 app.get("/puzzleStringEasyHyper", async(req, res) => {
   const puzzle = await readOneRowEasyHyper();
   res.setHeader ("content-type", "application/json")
   res.send(JSON.stringify(puzzle))
 })
+app.get("/puzzleStringMediumHyper", async(req, res) => {
+  const puzzle = await readOneRowMediumHyper();
+  res.setHeader ("content-type", "application/json")
+  res.send(JSON.stringify(puzzle))
+})
+app.get("/puzzleStringHardHyper", async(req, res) => {
+  const puzzle = await readOneRowHardHyper();
+  res.setHeader ("content-type", "application/json")
+  res.send(JSON.stringify(puzzle))
+})
+app.get("/puzzleStringExpertHyper", async(req, res) => {
+  const puzzle = await readOneRowExpertHyper();
+  res.setHeader ("content-type", "application/json")
+  res.send(JSON.stringify(puzzle))
+})
+
 
 async function readOneRowEasyHyper(){
   try {
@@ -114,6 +132,33 @@ async function readOneRowEasyHyper(){
     return [];
   }
 }
+async function readOneRowMediumHyper(){
+  try {
+    const result = await pool.query("SELECT * FROM sudoku WHERE hyper_difficulty='Medium' ORDER BY random() LIMIT 1")
+    return result.rows;
+  } catch (e) {
+    return [];
+  }
+}
+
+async function readOneRowHardHyper(){
+  try {
+    const result = await pool.query("SELECT * FROM sudoku WHERE hyper_difficulty='Hard' ORDER BY random() LIMIT 1")
+    return result.rows;
+  } catch (e) {
+    return [];
+  }
+}
+
+async function readOneRowExpertHyper(){
+  try {
+    const result = await pool.query("SELECT * FROM sudoku WHERE hyper_difficulty='Expert' ORDER BY random() LIMIT 1")
+    return result.rows;
+  } catch (e) {
+    return [];
+  }
+}
+
 
 
 //app.get("/",(req,res)=>res.sendFile(`${__dirname}/index.html`))

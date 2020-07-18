@@ -344,14 +344,12 @@ function outputHyper(){
 
 function solveHyper(){
     hyperboard = createHyperBoard();
-    var bool = validHyper(hyperboard);
     if (validHyper(hyperboard)){
         solveRecursionHyper();
         outputHyper();
     } else {
         alert ("Invalid Input");
     }
-    document.getElementById("test").innerHTML = bool;
 }
 
 
