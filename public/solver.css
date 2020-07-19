@@ -67,7 +67,6 @@ body{
     margin:2px;
     width:492px;
     height:485px;
-    grid-template:fr fr fr/fr fr fr;
     margin: auto;
     border-collapse: collapse;
 }
@@ -77,7 +76,6 @@ body{
     margin:2px;
     width:492px;
     height:485px;
-    grid-template:fr fr fr/fr fr fr;
     margin: auto;
     border-collapse: collapse;
     display: none;
@@ -88,7 +86,6 @@ body{
     height: 50px;
     text-align: center;
     font-size: 33px;
-    background-color: none;
 }
 .hypercell{
     background-color: rgb(21, 39, 121);
@@ -100,7 +97,7 @@ body{
     color: white;
 }
 td:focus{
-    box-shadow: 2px lightblue;
+    box-shadow: 0px 2px lightblue;
     background-color: rgb(61, 4, 39);
 }
 .cell:nth-of-type(3n):not(:last-of-type){
@@ -122,7 +119,6 @@ td:focus{
     border: 1px solid rgb(255, 255, 255);
     width: 494px;
     height: 43px;
-    grid-template: fr fr fr fr fr fr fr fr fr/fr;
     margin: auto;
     border-collapse: collapse;
 }
