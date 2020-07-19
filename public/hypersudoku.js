@@ -4,6 +4,7 @@ var erase=false;
 var Autocheck=false;
 var Check = false;
 var togglenote=false;
+const template = "000000000011102220011102220011102220000000000033304440033304440033304440000000000"
 
 function Erase(){
     if(erase){
@@ -477,30 +478,30 @@ function checkstring(pos,num,grid){
     //extra hypersudoku constraints
     for(let i=0; i<3; i++){
         for(let j=0; j<3; j++){
-            if((1<=colStart && colStart<=3) && (9<=rowStart && rowStart<36)){
-                let X=1
-                let Y=1
+            if(template[pos]==1){
+                let X=1;
+                let Y=1;
                 if(grid[X+Y*9+i*9+j]==num){
                     return false;
                 }
             }
-            if((5<=colStart && colStart<=7) && (9<=rowStart && colStart<36)){
-                let X=5
-                let Y=1
+            if(template[pos]==2){
+                let X=5;
+                let Y=1;
                 if(grid[X+Y*9+i*9+j]==num){
                     return false;
                 }
             }
-            if((1<=colStart && colStart<=3) && (45<=rowStart && rowStart<72)){
-                let X=1
-                let Y=1
+            if(template[pos]==3){
+                let X=1;
+                let Y=5;
                 if(grid[X+Y*9+i*9+j]==num){
                     return false;
                 }
             }
-            if((5<=colStart && colStart<=7) && (45<=rowStart && rowStart<72)){
-                let X=1
-                let Y=1
+            if(template[pos]==4){
+                let X=5;
+                let Y=5;
                 if(grid[X+Y*9+i*9+j]==num){
                     return false;
                 }
@@ -613,8 +614,8 @@ function openTab(tabName){
 
 //Database functions
 //one puzzle here is for testing purposes
-var puzzle = "000000000007005030500310890012700600900050310000020000006000700000060020003807406";
-var solved = "231978564897645231564312897312789645978456312645123978456231789789564123123897456";
+var puzzle = "050178002000000000042903100730006080006000000004000000000000207060705004407030000";
+var solved = "953178642178642953642953178731526489596487321824391765315864297269715834487239516";
 
 async function readStringEasy(){
     try {
