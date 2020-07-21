@@ -4,6 +4,7 @@ var erase=false;
 var Autocheck=false;
 var Check = false;
 var togglenote=false;
+var toggledis = false;
 
 function Erase(){
     if(erase){
@@ -480,6 +481,102 @@ function onenote(){
     }
 }
 
+function disjoint(){
+    //capture current grid state into a string
+    let grid="";
+    let c=document.getElementsByClassName("cellnumber");
+    let d=document.getElementsByClassName("note");
+    for(let i=0; i<81; i++){
+        let content=c[i].innerHTML;
+        if(content === "&nbsp;"){
+            grid+="0";
+        }
+        else{
+            grid+=content;
+        }
+    }
+
+    let allnotes = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 
+    '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+
+    for(let i=0; i<81; i++){
+        if(grid[i] === "0"){
+            for( let j=0; j<9; j++){
+                if(checkstring(i,j+1,grid)){
+                    allnotes[i]+=j+1;
+                }
+            }
+        }
+    }
+
+    for(let num=0; num<9; num++){
+        for(let i=0; i<9; i++){
+            for(let j=0; j<i; j++){
+                if(allnotes[i+9*num] && allnotes[j+9*num]){
+                    let row = allnotes[i+9*num]+allnotes[j+9*num];
+                    let set = "";
+                    for(let k=1; k<10; k++){
+                        if(row.includes(k)){
+                            set+=`${k}`;
+                        }
+                    }
+                    if(set.length === 2){
+                        //console.log(`row: ${i+9*num},${j+9*num}`);
+                        d[i+9*num].classList.add("dis");
+                        d[j+9*num].classList.add("dis");
+                    }
+                }
+                if(allnotes[9*i+num] && allnotes[9*j+num]){
+                    let col = allnotes[9*i+num]+allnotes[9*j+num];
+                    let set = "";
+                    for(let k=1; k<10; k++){
+                        if(col.includes(k)){
+                            set+=`${k}`;
+                        }
+                    }
+                    if(set.length === 2){
+                        //console.log(`column: ${9*i+num},${9*j+num}`);
+                        d[9*i+num].classList.add("dis");
+                        d[9*j+num].classList.add("dis");
+                    }
+                }
+                let x0 = (num-num%3)*9+num%3*3+Math.floor(i/3)*9+i%3;
+                let y0 = (num-num%3)*9+num%3*3+Math.floor(j/3)*9+j%3;
+                if(allnotes[x0] && allnotes[y0]){
+                    let col = allnotes[x0]+allnotes[y0];
+                    let set = "";
+                    for(let k=1; k<10; k++){
+                        if(col.includes(k)){
+                            set+=`${k}`;
+                        }
+                    }
+                    if(set.length === 2){
+                        //console.log(`block: ${x0},${y0}`);
+                        d[x0].classList.add("dis");
+                        d[y0].classList.add("dis");
+                    }
+                }
+            }
+        }
+    }
+}
+
+function toggleDisjoint(){
+    if(toggledis){
+        toggledis = false;
+        let c = document.getElementsByClassName("note");
+        for(let i=0; i<81; i++){
+            c[i].classList.remove("dis");
+        }
+    }
+    else{
+        toggledis = true;
+        disjoint();
+    }
+}
+
 function help(){
     alert("User Guide")
 }
@@ -522,8 +619,8 @@ function showshortcutPanel(){
 
 //Database functions
 //one puzzle here is for testing purposes
-var puzzle = "000000000007005030500310890012700600900050310000020000006000700000060020003807406";
-var solved = "231978564897645231564312897312789645978456312645123978456231789789564123123897456";
+var puzzle = "087000005000000132000006090032000800460090200000001000200040000070300600500908000";
+var solved = "987123465654789132321456798132564879465897213798231546213645987879312654546978321";
 
 async function readStringEasy(){
     try {

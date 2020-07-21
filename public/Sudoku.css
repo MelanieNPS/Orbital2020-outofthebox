@@ -185,6 +185,9 @@ td:focus{
   .wrong {
       background-color: rgb(241, 127, 127);
   }
+  .dis {
+      background-color: brown;
+  }
 
 
 
