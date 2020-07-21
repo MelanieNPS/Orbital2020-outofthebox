@@ -193,7 +193,7 @@ td:focus{
 
   .tipsButton{
       display: inline-block;
-      padding: 10px 25px;
+      padding: 10px 20px;
       text-align: center;
       color: white;
       background-color: #166466;
@@ -246,7 +246,7 @@ td:focus{
 }
 .guideTabs button{
     background-color: teal;
-    color: white;
+    color: rgb(236, 232, 232);
     cursor: pointer;
     padding: 17px 25px;
     font-size: 20px;
@@ -259,7 +259,7 @@ td:focus{
     display: none;
     margin: auto;
     width: 700px;
-    color: white;
+    color: #ffffff;
     text-align: center;
     height: 90%;
     font-size: 20px;
